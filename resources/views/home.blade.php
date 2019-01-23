@@ -51,5 +51,6 @@
             </div>
         </div>
     </div>
+    <a class="btn btn-primary btn-lg" href="{{action('CandidatesController@index')}}" role="button">List of Candidates</a>
 </div>
 @endsection

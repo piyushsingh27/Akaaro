@@ -9,17 +9,17 @@
 
     {{-- <div>
         {!!$post->body!!}
-    </div> 
+    </div>--}} 
     
     <hr>
     @if(!Auth::guest())
-        @if(Auth::user()->id == $post->user_id)
-            <a href = "{{$post->id}}/edit" class = "btn btn-default">Edit</a>
+        @if(Auth::user()->id == $candidate->user_id)
+            <a href = "{{$candidate->id}}/edit" class = "btn btn-default">Edit</a>
         
-            {!! Form::model($post, array('route' => array('posts.destroy', $post->id), 'method' => 'DELETE')) !!}
+            {!! Form::model($candidate, array('route' => array('candidates.destroy', $candidate->id), 'method' => 'DELETE')) !!}
                 {{Form::hidden('method','DELETE')}}
                 {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
             {!!Form::close()!!}
         @endif
-    @endif --}}
+    @endif
 @endsection
