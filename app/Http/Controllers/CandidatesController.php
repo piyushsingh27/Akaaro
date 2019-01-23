@@ -71,7 +71,7 @@ class CandidatesController extends Controller
             'university_PG' => ['string', 'max:255'],
             'college_PG' => ['string', 'max:255'],
             'aggregate_PG' => ['numeric', 'max:99'],
-            'experience' => ['numeric', 'min:1', 'max:1'],
+            'experience' => ['numeric', 'min:1', 'max:4'],
             'salary' => ['numeric'],
             'cv_last_modified' => ['required', 'date'],
         ]);
@@ -163,7 +163,7 @@ class CandidatesController extends Controller
             'university_PG' => ['string', 'max:255'],
             'college_PG' => ['string', 'max:255'],
             'aggregate_PG' => ['numeric', 'max:99'],
-            'experience' => ['numeric', 'min:1', 'max:1'],
+            'experience' => ['numeric', 'min:1', 'max:4'],
             'salary' => ['numeric'],
             'cv_last_modified' => ['required', 'date'],
         ]);
