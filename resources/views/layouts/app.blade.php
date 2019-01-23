@@ -61,9 +61,25 @@
                                         {{ __('Logout') }}
                                     </a>
 
+                                    {{-- <a class="dropdown-item" href="{{action('CandidatesController@index')}}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('list-form').submit();">
+                                        {{ __('List of Candidates') }}
+                                    </a> --}}
+
+                                    <a class="dropdown-item" href="{{action('CandidatesController@index')}}">List of Candidates</a>
+
+                                    {{-- <a href="{{action('CandidatesController@index')}}" >List of Candidates</a> --}}
+
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+
+                                    {{-- <form id="list-form" action="{{ route('candidates.index') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form> --}}
+
+
                                 </div>
                             </li>
                         @endguest

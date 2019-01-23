@@ -19,7 +19,8 @@
 
                 
                      <div class="card-body">
-                        <a href = "candidates/create" class = "btn btn-primary">Enter Details</a>
+                        <a href = "candidates/create" class = "btn btn-default">Enter Details</a>
+                        <hr>
                         <h3>Registered Candidates</h3>
                         @if(count($candidates) > 0)
                         <table class = "table table-striped">
@@ -31,7 +32,7 @@
                         @foreach($candidates as $candidate)
                             <tr>
                                 <td>{{$candidate->name}}</td>
-                                <td><a href = "candidates/{{$candidate->id}}/edit" class = "btn btn-default">Edit</a></td>
+                                <td><a href = "candidates/{{$candidate->id}}/edit" class = "btn btn-success">Edit</a></td>
                                 <td>
                                         {!! Form::model($candidate, array('route' => array('candidates.destroy', $candidate->id), 'method' => 'DELETE')) !!}
                                         {{Form::hidden('method','DELETE')}}
@@ -51,6 +52,6 @@
             </div>
         </div>
     </div>
-    <a class="btn btn-primary btn-lg" href="{{action('CandidatesController@index')}}" role="button">List of Candidates</a>
+    {{-- <a class="btn btn-primary btn-lg" href="{{action('CandidatesController@index')}}" role="button">List of Candidates</a> --}}
 </div>
 @endsection
