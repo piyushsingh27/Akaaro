@@ -25,6 +25,7 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/remarks','HomeController@index1');
 
 Route::resource('/candidates', 'CandidatesController');
 

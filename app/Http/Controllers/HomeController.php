@@ -28,4 +28,11 @@ class HomeController extends Controller
         $user = User::find($user_id);
         return view('home')->with('candidates',$user->candidates);
     }
+
+    public function index1()
+    {
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
+        return view('remarks')->with('remarks',$user->remarks);
+    }
 }
