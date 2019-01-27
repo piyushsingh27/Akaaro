@@ -27,3 +27,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/candidates', 'CandidatesController');
+
+Route::resource('/remarks', 'RemarksController');

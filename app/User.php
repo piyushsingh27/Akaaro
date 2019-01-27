@@ -32,4 +32,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Candidate');
     }
+
+    public function remarks()
+    {
+        return $this->hasMany('App\Remark');
+    }
 }
