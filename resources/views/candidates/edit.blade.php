@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-7">
             <div class="card">
-                <div class="card-header">{{ __('Enter Candidates') }}</div>
+                <div class="card-header">{{ __('Edit Candidate Details') }}</div>
                 {{-- <h1>Edit Details</h1> --}}
                 <div class = "card-body">
                 {!! Form::model($candidate, array('route' => array('candidates.update', $candidate->id), 'method' => 'PUT', 'enctype' => 'multipart/form-data')) !!}
