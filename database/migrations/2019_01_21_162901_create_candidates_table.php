@@ -35,6 +35,9 @@ class CreateCandidatesTable extends Migration
             $table->string('experience')->nullable();
             $table->string('salary')->nullable();
             $table->date('cv_last_modified')->nullable();
+            $table->string('status')->nullable();
+            $table->string('interview_type')->nullable();
+            $table->string('submission_type')->nullable();
             $table->timestamps();
         });
     }

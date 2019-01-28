@@ -74,6 +74,9 @@ class CandidatesController extends Controller
             'experience' => ['string'],
             'salary' => ['numeric'],
             'cv_last_modified' => ['required', 'date'],
+            'status' => ['string'],
+            'interview_type' => ['string'],
+            'submission_type' => ['string'],
         ]);
 
 
@@ -100,6 +103,9 @@ class CandidatesController extends Controller
         $candidate->experience = $request->input('experience');
         $candidate->salary = $request->input('salary');
         $candidate->cv_last_modified = $request->input('cv_last_modified');
+        $candidate->status = $request->input('status');
+        $candidate->interview_type = $request->input('interview_type');
+        $candidate->submission_type = $request->input('submission_type');
         $candidate->user_id = auth()->user()->id;
         $candidate->save();
 
@@ -166,6 +172,9 @@ class CandidatesController extends Controller
             'experience' => ['string'],
             'salary' => ['numeric'],
             'cv_last_modified' => ['required', 'date'],
+            'status' => ['string'],
+            'interview_type' => ['string'],
+            'submission_type' => ['string'],
         ]);
 
 
@@ -190,6 +199,9 @@ class CandidatesController extends Controller
         $candidate->experience = $request->input('experience');
         $candidate->salary = $request->input('salary');
         $candidate->cv_last_modified = $request->input('cv_last_modified');
+        $candidate->status = $request->input('status');
+        $candidate->interview_type = $request->input('interview_type');
+        $candidate->submission_type = $request->input('submission_type');
         $candidate->user_id = auth()->user()->id;
         $candidate->save();
 

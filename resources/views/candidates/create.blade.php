@@ -111,6 +111,37 @@
                     </div>
 
 
+                    <div class = "form-group">
+                        {{Form::label('status','Status')}}
+                        <br>
+                        {{Form::radio('status','hold')}} Hold
+                        <br>
+                        {{Form::radio('status','selected')}} Select
+                        <br>
+                        {{Form::radio('status','hired')}} Hired
+                        <br>
+                        {{Form::radio('status','not selected')}} Reject
+                    </div>
+
+                    <div class = "form-group">
+                        {{Form::label('interview_type','Type of Interview')}}
+                        <br>
+                        {{Form::radio('interview_type','telephonic')}} Telephonic
+                        <br>
+                        {{Form::radio('interview_type','face2face')}} Face-to-Face
+                    </div>
+
+                    <div class = "form-group">
+                        {{Form::label('submission_type','Resume Submission')}}
+                        <br>
+                        {{Form::radio('submission_type','ISUB')}} ISUB
+                        <br>
+                        {{Form::radio('submission_type','CSUB')}} CSUB
+                    </div>
+
+
+
+
                     
 
                     

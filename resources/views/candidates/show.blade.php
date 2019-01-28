@@ -51,6 +51,12 @@
                                 <hr>
                                 <h5>CV_last_modified: {{$candidate->cv_last_modified}}</h5>
                                 <hr>
+                                <h5>Status: {{$candidate->status}}</h5>
+                                <hr>
+                                <h5>Type of Interview: {{$candidate->interview_type}}</h5>
+                                <hr>
+                                <h5>Resume Submission: {{$candidate->submission_type}}</h5>
+                                <hr>
                                 {{-- <!--<img style="width:100%" src="storage/cover_images/{{$post->cover_image}}">--> --}}
                                 
                                 <small>{{$candidate->created_at}} by {{$candidate->user->name}}</small>
