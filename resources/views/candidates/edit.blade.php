@@ -97,7 +97,7 @@
 
                     <div class = "form-group">
                         {{Form::label('experience','Experience')}}
-                        {{Form::text('experience',$candidate->experience, ['class' => 'form-control', 'placeholder' => 'experience'])}}
+                        {{Form::select('experience',array('0 years' => 'Fresher', '1 year' => '1 year', '2 years' => '2 years', '3 years' => '3 years'), '0', ['class' => 'form-control', 'placeholder' => 'experience'])}}
                     </div>
 
                     <div class = "form-group">

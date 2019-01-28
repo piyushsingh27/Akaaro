@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-7">
             <div class="card">
-                <div class="card-header">{{ __('Enter Candidates') }}</div>
+                <div class="card-header">{{ __('Candidate Details') }}</div>
 
                 <div class="card-body">
                             {{-- <a class="btn btn-primary btn-lg" href="{{action('CandidatesController@index')}}" role="button">Go Back</a> --}}
