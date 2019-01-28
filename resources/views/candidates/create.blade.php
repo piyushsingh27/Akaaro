@@ -97,12 +97,12 @@
 
                     <div class = "form-group">
                         {{Form::label('experience','Experience')}}
-                        {{Form::select('experience',array('0' => 'Fresher', '1' => '1 year', '2' => '2 years', '3' => '3 years'), '0', ['class' => 'form-control', 'placeholder' => 'experience'])}}
+                        {{Form::select('experience',array('0 years' => 'Fresher', '1 year' => '1 year', '2 years' => '2 years', '3 years' => '3 years'), '0', ['class' => 'form-control', 'placeholder' => 'experience'])}}
                     </div>
 
                     <div class = "form-group">
                         {{Form::label('salary','Salary')}}
-                        {{Form::text('salary','', ['class' => 'form-control', 'placeholder' => 'salary'])}}
+                        {{Form::select('salary',array('1 Lakh' => '1 Lakh', '2 Lakhs' => '2 Lakhs', '3 Lakhs' => '3 Lakhs', '4 Lakhs' => '4 Lakhs'), '1 Lakh', ['class' => 'form-control', 'placeholder' => 'salary'])}}
                     </div>
 
                     <div class = "form-group">
