@@ -49,6 +49,44 @@
                     @else
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Status <span class="caret"></span>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{action('CandidatesController@index_hired')}}">Hired</a>
+                                    <a class="dropdown-item" href="{{action('CandidatesController@index_selected')}}">Selected</a>
+                                    <a class="dropdown-item" href="{{action('CandidatesController@index_hold')}}">On Hold</a>
+                                    <a class="dropdown-item" href="{{action('CandidatesController@index_rejected')}}">Rejected</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Type of Interview <span class="caret"></span>
+                                </a>
+    
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{action('CandidatesController@index_face2face')}}">Personal Interview</a>
+                                        <a class="dropdown-item" href="{{action('CandidatesController@index_telephonic')}}">Telephonic Interview</a>  
+                                </div>
+                        </li>
+    
+                        <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Type of Submission <span class="caret"></span>
+                                </a>
+    
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{action('CandidatesController@index_ISUB')}}">ISUB</a>
+                                    <a class="dropdown-item" href="{{action('CandidatesController@index_CSUB')}}">CSUB</a>  
+                                </div>
+                        </li>
+
+
+
+                        
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
     
@@ -59,16 +97,13 @@
                                 <a class="dropdown-item" href="{{action('CandidatesController@index')}}">List of candidates</a>
                             
                                 <a class="dropdown-item" href="{{action('RemarksController@index')}}">Remarks</a> 
-
+                                
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
     
-                                <!--<ul class = "nav navbar-nav navbar-right">
-                                    <li><a class="nav-link" href="posts/create">Create Post</li>
-                                </ul>--> 
     
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf

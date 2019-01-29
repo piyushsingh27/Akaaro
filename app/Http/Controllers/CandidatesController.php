@@ -34,6 +34,68 @@ class CandidatesController extends Controller
         return view('candidates.index')->with('candidates',$candidates);
     }
 
+    public function index_hired()
+    {
+        $candidates = Candidate::orderBy('created_at','desc')->get();
+
+        return view('Status.indexhired')->with('candidates',$candidates);
+    }
+
+    public function index_hold()
+    {
+        $candidates = Candidate::orderBy('created_at','desc')->get();
+
+        return view('Status.indexhold')->with('candidates',$candidates);
+    }
+
+    public function index_selected()
+    {
+        $candidates = Candidate::orderBy('created_at','desc')->get();
+
+        return view('Status.indexselected')->with('candidates',$candidates);
+    }
+
+    public function index_rejected()
+    {
+        $candidates = Candidate::orderBy('created_at','desc')->get();
+
+        return view('Status.indexrejected')->with('candidates',$candidates);
+    }
+
+    public function index_face2face()
+    {
+        $candidates = Candidate::orderBy('created_at','desc')->get();
+
+        return view('Interview.indexface2face')->with('candidates',$candidates);
+    }
+
+    public function index_telephonic()
+    {
+        $candidates = Candidate::orderBy('created_at','desc')->get();
+
+        return view('Interview.indextelephonic')->with('candidates',$candidates);
+    }
+
+    public function index_ISUB()
+    {
+        $candidates = Candidate::orderBy('created_at','desc')->get();
+
+        return view('Submission.indexIsub')->with('candidates',$candidates);
+    }
+
+    public function index_CSUB()
+    {
+        $candidates = Candidate::orderBy('created_at','desc')->get();
+
+        return view('Submission.indexCsub')->with('candidates',$candidates);
+    }
+
+
+
+
+
+
+
     /**
      * Show the form for creating a new resource.
      *

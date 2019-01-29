@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +13,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.register');
 });
 
 
@@ -28,5 +29,19 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('/remarks','HomeController@index1');
 
 Route::resource('/candidates', 'CandidatesController');
+
+Route::get('/candidateshired', 'CandidatesController@index_hired');
+Route::get('/candidateshold', 'CandidatesController@index_hold');
+Route::get('/candidatesselected', 'CandidatesController@index_selected');
+Route::get('/candidatesrejected', 'CandidatesController@index_rejected');
+
+
+Route::get('/interviewface2face', 'CandidatesController@index_face2face');
+Route::get('/interviewtelephonic', 'CandidatesController@index_telephonic');
+
+Route::get('/isub', 'CandidatesController@index_ISUB');
+Route::get('/csub', 'CandidatesController@index_CSUB');
+
+
 
 Route::resource('/remarks', 'RemarksController');
