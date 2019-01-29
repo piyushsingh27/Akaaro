@@ -102,7 +102,7 @@
 
                     <div class = "form-group">
                         {{Form::label('salary','Salary')}}
-                        {{Form::select('salary',array('1 Lakh' => '1 Lakh', '2 Lakhs' => '2 Lakhs', '3 Lakhs' => '3 Lakhs', '4 Lakhs' => '4 Lakhs'), '1 Lakh', ['class' => 'form-control', 'placeholder' => 'salary'])}}
+                        {{Form::select('salary',array('2.5 Lakhs' => '2.5 Lakhs', '3 Lakhs' => '3 Lakhs', '4 Lakhs' => '4 Lakhs', '5 Lakhs' => '5 Lakhs', '6 Lakhs' => '6 Lakhs'), '2.5 Lakhs', ['class' => 'form-control', 'placeholder' => 'salary'])}}
                     </div>
 
                     <div class = "form-group">
@@ -165,5 +165,5 @@
     </div>
 </div>
 
-<a class="btn btn-primary btn-lg" href="{{action('CandidatesController@index')}}" role="button">Go Back</a> 
+{{-- <a class="btn btn-primary btn-lg" href="{{action('CandidatesController@index')}}" role="button">Go Back</a>  --}}
 @endsection
