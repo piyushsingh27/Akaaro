@@ -109,6 +109,9 @@ class CandidatesController extends Controller
                                 ->orWhere('interview_type', 'like', "%$query%")
                                 ->orWhere('submission_type', 'like', "%$query%")
                                 ->paginate(5);
+
+        // $candidates = Candidate::search($query)->paginate(5);
+
         return view('search-results')->with('candidates', $candidates);
     }
 
