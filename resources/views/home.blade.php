@@ -15,11 +15,17 @@
                     @endif
 
                     You are logged in!
+                    <hr>
+
+                    <form action="{{route('search')}}" method="GET" class="search-form">
+                        <span class="glyphicon glyphicon-search"></span>
+                    <input type="text" name="query" id="query" value="{{request()->input('query')}}" class="search-box" placeholder="Search for Candidates">
+                    </form>
                 </div>
 
                 
                      <div class="card-body">
-                        <a href = "candidates/create" class = "btn btn-default">Enter Details</a>
+                        <a href = "candidates/create" class = "btn btn-primary">Enter Details</a>
                         <hr>
                         <h3>Registered Candidates</h3>
                         @if(count($candidates) > 0)

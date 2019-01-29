@@ -47,6 +47,11 @@
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                     @else
+                        {{-- <form action="#" method="GET" class="search-form">
+                            <span class="glyphicon glyphicon-search"></span>
+                            <input type="text" name="query" id="query" class="search-box" placeholder="Search for Candidates">
+                        </form> --}}
+
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 Status <span class="caret"></span>
@@ -62,7 +67,7 @@
 
                         <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    Interview_Type <span class="caret"></span>
+                                    Interview <span class="caret"></span>
                                 </a>
     
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -73,7 +78,7 @@
     
                         <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    Submission_Type <span class="caret"></span>
+                                    Submission <span class="caret"></span>
                                 </a>
     
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

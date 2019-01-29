@@ -40,7 +40,9 @@ Route::get('/interviewface2face', 'CandidatesController@index_face2face');
 Route::get('/interviewtelephonic', 'CandidatesController@index_telephonic');
 
 Route::get('/isub', 'CandidatesController@index_ISUB');
-Route::get('/csub', 'CandidatesController@index_CSUB');
+Route::get('/csub', 'CandidatesController@index_CSUB');     
+
+Route::get('/search', 'CandidatesController@search')->name('search');
 
 
 

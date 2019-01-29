@@ -91,8 +91,26 @@ class CandidatesController extends Controller
     }
 
 
+    public function search(Request $request)
+    {
+        $request->validate([
+            'query' => ['required', 'min:1'],
+        ]);
 
+        $query = $request->input('query');
 
+        $candidates = Candidate::where('name', 'like', "%$query%")
+                                ->orWhere('preferred_location', 'like', "%$query%")
+                                ->orWhere('marks_12th', 'like', "%$query%")
+                                ->orWhere('aggregate_UG', 'like', "%$query%")
+                                ->orWhere('aggregate_PG', 'like', "%$query%")
+                                ->orWhere('salary', 'like', "%$query%")
+                                ->orWhere('status', 'like', "%$query%")
+                                ->orWhere('interview_type', 'like', "%$query%")
+                                ->orWhere('submission_type', 'like', "%$query%")
+                                ->paginate(5);
+        return view('search-results')->with('candidates', $candidates);
+    }
 
 
 
