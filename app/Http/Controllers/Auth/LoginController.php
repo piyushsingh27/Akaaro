@@ -7,6 +7,8 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\User;
 use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
 
 class LoginController extends Controller
 {
@@ -42,6 +44,8 @@ class LoginController extends Controller
 
     public function logout(Request $request) {
         Auth::logout();
+        Session::flush();
+        Redirect::back();
         return redirect('/login');
       }
 }
