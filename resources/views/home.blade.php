@@ -17,10 +17,13 @@
                     You are logged in!
                     <hr>
 
-                    <form action="{{route('search')}}" method="GET" class="search-form">
+                    {{-- <form action="{{route('search')}}" method="GET" class="search-form">
                         <span class="glyphicon glyphicon-search"></span>
                     <input type="text" name="query" id="query" value="{{request()->input('query')}}" class="search-box" placeholder="Search for Candidates">
-                    </form>
+                    </form> --}}
+
+                    <a href = "{{route('searchpage')}}" class = "btn btn-primary">Search</a>
+
                 </div>
 
                 

@@ -115,6 +115,11 @@ class CandidatesController extends Controller
         return view('search-results')->with('candidates', $candidates);
     }
 
+    public function searchpage()
+    {
+        return view('search');
+    }
+
 
 
     /**
