@@ -46,6 +46,7 @@ Route::get('/searchaggregate_UG', 'CandidatesController@search_aggregate_UG')->n
 Route::get('/searchaggregate_PG', 'CandidatesController@search_aggregate_PG')->name('search_aggregatePG');
 Route::get('/searchsalary', 'CandidatesController@search_salary')->name('search_salary');
 Route::get('/searchstatus', 'CandidatesController@search_status')->name('search_status');
+Route::get('/searchskills', 'CandidatesController@search_skills')->name('search_skills');
 Route::get('/searchinterview-type', 'CandidatesController@search_interviewtype')->name('search_interviewtype');
 Route::get('/searchsubmission-type', 'CandidatesController@search_submissiontype')->name('search_submissiontype');
 

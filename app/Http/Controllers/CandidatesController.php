@@ -99,15 +99,7 @@ class CandidatesController extends Controller
 
         $query = $request->input('query');
 
-        $candidates = Candidate::where('name', 'like', "%$query%")
-                                
-                                
-                                
-                                
-                                
-                                
-                                // ->orWhere('submission_type', 'like', "%$query%")
-                                ->paginate(1);
+        $candidates = Candidate::where('name', 'like', "%$query%")->paginate(1);
 
         // $candidates = Candidate::search($query)->paginate(5);
 
@@ -192,6 +184,19 @@ class CandidatesController extends Controller
         return view('search-results')->with('candidates', $candidates);
     }
 
+    public function search_skills(Request $request)
+    {
+        $request->validate([
+            'query' => [ 'min:1'],
+        ]);
+
+        $query = $request->input('query');
+        
+        $candidates = Candidate::where('skills', 'like', "%$query%")->paginate(1);
+
+        return view('search-results')->with('candidates', $candidates);
+    }
+
     public function search_interviewtype(Request $request)
     {
         $request->validate([
@@ -262,6 +267,7 @@ class CandidatesController extends Controller
             'university_PG' => ['string', 'max:255'],
             'college_PG' => ['string', 'max:255'],
             'aggregate_PG' => ['numeric', 'max:99'],
+            'skills' => ['string'],
             'experience' => ['string'],
             'salary' => ['string'],
             'cv_last_modified' => ['required', 'date'],
@@ -291,6 +297,7 @@ class CandidatesController extends Controller
         $candidate->university_PG = $request->input('university_PG');
         $candidate->college_PG = $request->input('college_PG');
         $candidate->aggregate_PG = $request->input('aggregate_PG');
+        $candidate->skills = $request->input('skills');
         $candidate->experience = $request->input('experience');
         $candidate->salary = $request->input('salary');
         $candidate->cv_last_modified = $request->input('cv_last_modified');
@@ -360,6 +367,7 @@ class CandidatesController extends Controller
             'university_PG' => ['string', 'max:255'],
             'college_PG' => ['string', 'max:255'],
             'aggregate_PG' => ['numeric', 'max:99'],
+            'skills' => ['string'],
             'experience' => ['string'],
             'salary' => ['string'],
             'cv_last_modified' => ['required', 'date'],
@@ -387,6 +395,7 @@ class CandidatesController extends Controller
         $candidate->university_PG = $request->input('university_PG');
         $candidate->college_PG = $request->input('college_PG');
         $candidate->aggregate_PG = $request->input('aggregate_PG');
+        $candidate->skills = $request->input('skills');
         $candidate->experience = $request->input('experience');
         $candidate->salary = $request->input('salary');
         $candidate->cv_last_modified = $request->input('cv_last_modified');

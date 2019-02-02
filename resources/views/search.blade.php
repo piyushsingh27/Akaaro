@@ -44,6 +44,13 @@
 
                         <hr>
 
+                        <form action="{{route('search_skills')}}" method="GET" class="search-form">
+                                <span class="glyphicon glyphicon-search"></span>
+                            <input type="text" name="query" id="query" value="{{request()->input('query')}}" class="search-box" placeholder="Skills">
+                        </form>
+
+                        <hr>
+
                         <form action="{{route('search_salary')}}" method="GET" class="search-form">
                                 <span class="glyphicon glyphicon-search"></span>
                             <input type="text" name="query" id="query" value="{{request()->input('query')}}" class="search-box" placeholder="Salary">
