@@ -91,26 +91,129 @@ class CandidatesController extends Controller
     }
 
 
-    public function search(Request $request)
+    public function search_name(Request $request)
     {
         $request->validate([
-            'query' => ['required', 'min:1'],
+            'query' => [ 'min:1'],
         ]);
 
         $query = $request->input('query');
 
         $candidates = Candidate::where('name', 'like', "%$query%")
-                                ->orWhere('preferred_location', 'like', "%$query%")
-                                ->orWhere('marks_12th', 'like', "%$query%")
-                                ->orWhere('aggregate_UG', 'like', "%$query%")
-                                ->orWhere('aggregate_PG', 'like', "%$query%")
-                                ->orWhere('salary', 'like', "%$query%")
-                                ->orWhere('status', 'like', "%$query%")
-                                ->orWhere('interview_type', 'like', "%$query%")
-                                ->orWhere('submission_type', 'like', "%$query%")
-                                ->paginate(5);
+                                
+                                
+                                
+                                
+                                
+                                
+                                // ->orWhere('submission_type', 'like', "%$query%")
+                                ->paginate(1);
 
         // $candidates = Candidate::search($query)->paginate(5);
+
+        return view('search-results')->with('candidates', $candidates);
+    }
+
+    public function search_location(Request $request)
+    {
+        $request->validate([
+            'query' => [ 'min:1'],
+        ]);
+
+        $query = $request->input('query');
+        
+        $candidates = Candidate::where('preferred_location', 'like', "%$query%")->paginate(1);
+
+        return view('search-results')->with('candidates', $candidates);
+    }
+
+    public function search_marks12th(Request $request)
+    {
+        $request->validate([
+            'query' => [ 'min:1'],
+        ]);
+
+        $query = $request->input('query');
+        
+        $candidates = Candidate::where('marks_12th', 'like', "%$query%")->paginate(1);
+
+        return view('search-results')->with('candidates', $candidates);
+    }
+
+    public function search_aggregate_UG(Request $request)
+    {
+        $request->validate([
+            'query' => [ 'min:1'],
+        ]);
+
+        $query = $request->input('query');
+        
+        $candidates = Candidate::where('aggregate_UG', 'like', "%$query%")->paginate(1);
+
+        return view('search-results')->with('candidates', $candidates);
+    }
+
+    public function search_aggregate_PG(Request $request)
+    {
+        $request->validate([
+            'query' => [ 'min:1'],
+        ]);
+
+        $query = $request->input('query');
+        
+        $candidates = Candidate::where('aggregate_PG', 'like', "%$query%")->paginate(1);
+
+        return view('search-results')->with('candidates', $candidates);
+    }
+
+    public function search_salary(Request $request)
+    {
+        $request->validate([
+            'query' => [ 'min:1'],
+        ]);
+
+        $query = $request->input('query');
+        
+        $candidates = Candidate::where('salary', 'like', "%$query%")->paginate(1);
+
+        return view('search-results')->with('candidates', $candidates);
+    }
+
+    public function search_status(Request $request)
+    {
+        $request->validate([
+            'query' => [ 'min:1'],
+        ]);
+
+        $query = $request->input('query');
+        
+        $candidates = Candidate::where('status', 'like', "%$query%")->paginate(1);
+
+        return view('search-results')->with('candidates', $candidates);
+    }
+
+    public function search_interviewtype(Request $request)
+    {
+        $request->validate([
+            'query' => [ 'min:1'],
+        ]);
+
+        $query = $request->input('query');
+        
+        $candidates = Candidate::where('interview_type', 'like', "%$query%")->paginate(1);
+
+        return view('search-results')->with('candidates', $candidates);
+    }
+
+    public function search_submissiontype(Request $request)
+    {
+        $request->validate([
+            'query' => [ 'min:1'],
+        ]);
+
+        $query = $request->input('query');
+        
+        $candidates = Candidate::where('submission_type', 'like', "%$query%")->paginate(1);
 
         return view('search-results')->with('candidates', $candidates);
     }

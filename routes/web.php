@@ -39,8 +39,15 @@ Route::get('/csub', 'CandidatesController@index_CSUB');
 
 Route::get('/searchpage', 'CandidatesController@searchpage')->name('searchpage');
 
-Route::get('/search', 'CandidatesController@search')->name('search');
-
+Route::get('/searchname', 'CandidatesController@search_name')->name('search_name');
+Route::get('/searchlocation', 'CandidatesController@search_location')->name('search_location');
+Route::get('/searchmarks12th', 'CandidatesController@search_marks12th')->name('search_marks12th');
+Route::get('/searchaggregate_UG', 'CandidatesController@search_aggregate_UG')->name('search_aggregateUG');
+Route::get('/searchaggregate_PG', 'CandidatesController@search_aggregate_PG')->name('search_aggregatePG');
+Route::get('/searchsalary', 'CandidatesController@search_salary')->name('search_salary');
+Route::get('/searchstatus', 'CandidatesController@search_status')->name('search_status');
+Route::get('/searchinterview-type', 'CandidatesController@search_interviewtype')->name('search_interviewtype');
+Route::get('/searchsubmission-type', 'CandidatesController@search_submissiontype')->name('search_submissiontype');
 
 
 Route::resource('/remarks', 'RemarksController');

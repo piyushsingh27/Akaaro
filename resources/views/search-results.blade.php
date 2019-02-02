@@ -59,9 +59,10 @@
                                     
                                     {{-- <small>{{$candidate->created_at}} by {{$candidate->user->name}}</small> --}}
 
+                                    {{$candidates->links()}}
                                 @endforeach
 
-                                {{$candidates->links()}}
+                                
                 </div>
             </div>
         </div>
