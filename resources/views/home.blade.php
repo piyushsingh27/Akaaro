@@ -42,12 +42,12 @@
                             <tr>
                                 <td>{{$candidate->name}}</td>
                                 <td><a href = "candidates/{{$candidate->id}}/edit" class = "btn btn-success">Edit</a></td>
-                                <td>
-                                        {!! Form::model($candidate, array('route' => array('candidates.destroy', $candidate->id), 'method' => 'DELETE')) !!}
+                                {{-- <td> --}}
+                                        {{-- {!! Form::model($candidate, array('route' => array('candidates.destroy', $candidate->id), 'method' => 'DELETE')) !!}
                                         {{Form::hidden('method','DELETE')}}
                                         {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
-                                    {!!Form::close()!!}
-                                </td>
+                                    {!!Form::close()!!} --}}
+                                {{-- </td> --}}
                             </tr> 
     
                             @endforeach

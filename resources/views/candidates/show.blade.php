@@ -72,10 +72,10 @@
 
                                         <hr>
                                     
-                                        {!! Form::model($candidate, array('route' => array('candidates.destroy', $candidate->id), 'method' => 'DELETE')) !!}
+                                        {{-- {!! Form::model($candidate, array('route' => array('candidates.destroy', $candidate->id), 'method' => 'DELETE')) !!}
                                             {{Form::hidden('method','DELETE')}}
                                             {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
-                                        {!!Form::close()!!}
+                                        {!!Form::close()!!} --}}
                                     @endif
                                 @endif
                 </div>
