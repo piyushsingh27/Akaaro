@@ -30,10 +30,10 @@ class Client extends Authenticatable
         'password', 'remember_token',
     ];
 
-    // public function candidates()
-    // {
-    //     return $this->hasMany('App\Candidate');
-    // }
+    public function candidates()
+    {
+        return $this->hasMany('App\Candidate');
+    }
 
     // public function remarks()
     // {
