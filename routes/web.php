@@ -52,3 +52,23 @@ Route::get('/searchsubmission-type', 'CandidatesController@search_submissiontype
 
 
 Route::resource('/remarks', 'RemarksController');
+
+
+
+//Client Routes
+
+Route::group(['middleware' => 'prevent-back-history'],function(){
+    Route::group(['namespace' => 'Client'], function() {
+
+        Route::prefix('client')->group(function() {
+            Route::get('/home', 'HomeController@index')->name('client.home');
+
+            //Authentication Routes
+            Route::get('login', 'Auth\LoginController@showLoginForm')->name('client.login');
+            Route::post('login', 'Auth\LoginController@login');
+            Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('client.register');
+            Route::post('register', 'Auth\RegisterController@register');
+            Route::post('logout', 'Auth\LoginController@logout')->name('client.logout');
+        });
+    });
+});

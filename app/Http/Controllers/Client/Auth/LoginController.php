@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Client\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use App\User;
+use App\Client;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -30,7 +30,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/client/home';
 
     /**
      * Create a new controller instance.
@@ -39,13 +39,35 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');   
+        $this->middleware('guest:client')->except('logout');   
     }
 
-    public function logout(Request $request) {
-        Auth::logout();
-        Session::flush();
-        Redirect::back();
-        return redirect('/login');
+    /**
+     * Show the application's login form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showLoginForm()
+    {
+        return view('client.auth.login');
+    }
+
+    protected function guard()
+    {
+        return Auth::guard('client');
+    }
+
+    
+
+    public function logout(Request $request) 
+    {
+        // Auth::logout();
+        // Session::flush();
+        // Redirect::back();
+        $this->guard()->logout();
+
+        $request->session()->invalidate();
+        
+        return redirect('/client/login');
       }
 }
