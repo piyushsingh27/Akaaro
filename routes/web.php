@@ -1,5 +1,7 @@
 <?php
 
+// use Symfony\Component\Routing\Annotation\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -69,6 +71,9 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('client.register');
             Route::post('register', 'Auth\RegisterController@register');
             Route::post('logout', 'Auth\LoginController@logout')->name('client.logout');
+            
+
+            Route::resource('/candidatescl', 'CandidatesController');
         });
     });
 });

@@ -1,7 +1,7 @@
 
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <a class="navbar-brand" href="{{route('home')}}">{{config('app.name','LSAPP')}}</a>
+    <a class="navbar-brand" href="{{route('client.home')}}">{{config('app.name','LSAPP')}}</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -40,6 +40,9 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
                 @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Admin Section') }}</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('client.login') }}">{{ __('Login') }}</a>
                     </li>
@@ -99,7 +102,7 @@
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> 
 
-                            <a class="dropdown-item" href="{{action('CandidatesController@index')}}">List of candidates</a>
+                            <a class="dropdown-item" href="{{action('Client\CandidatesController@index')}}">List of candidates</a>
                         
                             {{-- <a class="dropdown-item" href="{{action('RemarksController@index')}}">Remarks</a>  --}}
                             

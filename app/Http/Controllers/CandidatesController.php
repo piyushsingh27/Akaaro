@@ -34,6 +34,16 @@ class CandidatesController extends Controller
         return view('candidates.index')->with('candidates',$candidates);
     }
 
+    public function index_client()
+    {
+        $candidates = Candidate::orderBy('created_at','desc')->get();
+        //$posts = Post::orderBy('title','desc')->take(1)->get();
+       //$posts = DB::select('SELECT * FROM posts');
+       //$posts = Post::all();
+        //$candidates = Post::orderBy('id','desc')->paginate(10);
+        return view('candidates.index_client')->with('candidates',$candidates);
+    }
+
     public function index_hired()
     {
         $candidates = Candidate::orderBy('created_at','desc')->get();
@@ -320,6 +330,12 @@ class CandidatesController extends Controller
     {
         $candidate = Candidate::find($id);
         return view('candidates.show')->with('candidate',$candidate);
+    }
+
+    public function show_client($id)
+    {
+        $candidate = Candidate::find($id);
+        return view('candidates.show_client')->with('candidate',$candidate);
     }
 
     /**
