@@ -24,7 +24,7 @@
 
                     {{-- <a href = "{{route('searchpage')}}" class = "btn btn-primary">Search</a> --}}
 
-                    <a href = "{{route('searchpage')}}" class = "btn btn-primary">Search</a>
+                    <a href = "{{route('client.searchpage')}}" class = "btn btn-primary">Search</a>
 
                 </div>
 

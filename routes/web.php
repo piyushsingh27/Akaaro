@@ -74,6 +74,17 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             
 
             Route::resource('/candidatescl', 'CandidatesController');
+
+            Route::get('/searchpagecl', 'CandidatesController@searchpage')->name('client.searchpage');
+
+            Route::get('/searchnamecl', 'CandidatesController@search_name')->name('client.search_name');
+            Route::get('/searchlocationcl', 'CandidatesController@search_location')->name('client.search_location');
+            Route::get('/searchmarks12thcl', 'CandidatesController@search_marks12th')->name('client.search_marks12th');
+            Route::get('/searchaggregate_UGcl', 'CandidatesController@search_aggregate_UG')->name('client.search_aggregateUG');
+            Route::get('/searchaggregate_PGcl', 'CandidatesController@search_aggregate_PG')->name('client.search_aggregatePG');
+            Route::get('/searchsalarycl', 'CandidatesController@search_salary')->name('client.search_salary');
+            Route::get('/searchstatuscl', 'CandidatesController@search_status')->name('client.search_status');
+            Route::get('/searchskillscl', 'CandidatesController@search_skills')->name('client.search_skills');
         });
     });
 });
