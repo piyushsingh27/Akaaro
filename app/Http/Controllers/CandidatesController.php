@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Candidate;
+use App\Cities;
 use DB;
 
 class CandidatesController extends Controller
@@ -247,7 +248,9 @@ class CandidatesController extends Controller
      */
     public function create()
     {
-        return view('candidates.create');
+        $cities = Cities::all();
+
+        return view('candidates.create')->with('cities', $cities);
     }
 
     /**
@@ -265,8 +268,8 @@ class CandidatesController extends Controller
             'phone' => ['required', 'numeric'],
             'DOB' => ['required', 'date'],
             'gender' => ['required', 'string', 'regex:/^[a-zA-Z]+$/u', 'max:255'],
-            'current_location' => ['required', 'string', 'regex:/^[a-zA-Z]+$/u', 'max:255'],
-            'preferred_location' => ['required', 'string', 'regex:/^[a-zA-Z]+$/u', 'max:255'],
+            'current_location' => ['required'],
+            'preferred_location' => ['required'],
             'school_10th' => ['required', 'string', 'regex:/^[a-zA-Z]+$/u', 'max:255'],
             'marks_10th' => ['required', 'numeric', 'max:99'],
             'school_12th' => ['required', 'string', 'regex:/^[a-zA-Z]+$/u', 'max:255'],
@@ -278,6 +281,7 @@ class CandidatesController extends Controller
             'college_PG' => ['nullable', 'string', 'max:255'],
             'aggregate_PG' => ['nullable', 'numeric', 'max:99'],
             'skills' => ['string'],
+            'other_skills' => ['string'],
             'experience' => ['string'],
             'salary' => ['string'],
             'cv_last_modified' => ['required', 'date'],
@@ -308,6 +312,7 @@ class CandidatesController extends Controller
         $candidate->college_PG = $request->input('college_PG');
         $candidate->aggregate_PG = $request->input('aggregate_PG');
         $candidate->skills = $request->input('skills');
+        $candidate->other_skills = $request->input('other_skills');
         $candidate->experience = $request->input('experience');
         $candidate->salary = $request->input('salary');
         $candidate->cv_last_modified = $request->input('cv_last_modified');
@@ -347,12 +352,17 @@ class CandidatesController extends Controller
     public function edit($id)
     {
         $candidate = Candidate::find($id);
+        $cities = Cities::/*pluck('cities')->*/all();
 
         //Check for correct user
         if(auth()->user()->id != $candidate->user_id){
             return redirect('candidates')->with('error' , 'Unauthorized page');
         }
-        return view('candidates.edit')->with('candidate',$candidate);
+        $data = array(
+            'candidate' => $candidate,
+            'cities' => $cities,
+        );
+        return view('candidates.edit')->with('data',$data);
     }
 
     /**
@@ -371,8 +381,8 @@ class CandidatesController extends Controller
             'phone' => ['required', 'numeric'],
             'DOB' => ['required', 'date'],
             'gender' => ['required', 'string', 'regex:/^[a-zA-Z]+$/u', 'max:255'],
-            'current_location' => ['required', 'string', 'regex:/^[a-zA-Z]+$/u', 'max:255'],
-            'preferred_location' => ['required', 'string', 'regex:/^[a-zA-Z]+$/u', 'max:255'],
+            'current_location' => ['required', 'string'],
+            'preferred_location' => ['required', 'string'],
             'school_10th' => ['required', 'string', 'regex:/^[a-zA-Z]+$/u', 'max:255'],
             'marks_10th' => ['required', 'numeric', 'max:99'],
             'school_12th' => ['required', 'string', 'regex:/^[a-zA-Z]+$/u', 'max:255'],
@@ -384,6 +394,7 @@ class CandidatesController extends Controller
             'college_PG' => ['nullable', 'string', 'max:255'],
             'aggregate_PG' => ['nullable', 'numeric', 'max:99'],
             'skills' => ['string'],
+            'other_skills' => ['string'],
             'experience' => ['string'],
             'salary' => ['string'],
             'cv_last_modified' => ['required', 'date'],
@@ -412,6 +423,7 @@ class CandidatesController extends Controller
         $candidate->college_PG = $request->input('college_PG');
         $candidate->aggregate_PG = $request->input('aggregate_PG');
         $candidate->skills = $request->input('skills');
+        $candidate->other_skills = $request->input('other_skills');
         $candidate->experience = $request->input('experience');
         $candidate->salary = $request->input('salary');
         $candidate->cv_last_modified = $request->input('cv_last_modified');

@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+
+@php
+    $cities = $data['cities'];
+    $candidate = $data['candidate'];    
+@endphp
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-7">
@@ -32,17 +37,21 @@
 
                     <div class = "form-group">
                         {{Form::label('gender','Gender')}}
-                        {{Form::text('gender',$candidate->gender, ['class' => 'form-control', 'placeholder' => 'gender'])}}
+                        {{-- {{Form::text('gender',$candidate->gender, ['class' => 'form-control', 'placeholder' => 'gender'])}} --}}
+                        {{Form::select('gender',array('Male' => 'Male', 'Female' => 'Female'),$candidate->gender, ['class' => 'form-control', 'placeholder' => 'gender'])}}
                     </div>
 
                     <div class = "form-group">
                         {{Form::label('current_location','Current_location')}}
-                        {{Form::text('current_location',$candidate->current_location, ['class' => 'form-control', 'placeholder' => 'current_location'])}}
+                        {{-- {{Form::text('current_location',$candidate->current_location, ['class' => 'form-control', 'placeholder' => 'current_location'])}} --}}
+                        {{-- {{Form::select('current_location', $cities,null,['class' => 'form-control', 'placeholder' => 'current_location'])}} --}}
+                        {{Form::select('current_location',array('Delhi' => 'Delhi', 'Mumbai' => 'Mumbai', 'Chennai' => 'Chennai', 'Kolkata' => 'Kolkata', 'Bangalore' => 'Bangalore'),$candidate->current_location, ['class' => 'form-control', 'placeholder' => 'current_location'])}}
                     </div>
 
                     <div class = "form-group">
                         {{Form::label('preferred_location','Preferred_location')}}
-                        {{Form::text('preferred_location',$candidate->preferred_location, ['class' => 'form-control', 'placeholder' => 'preferred_location'])}}
+                        {{-- {{Form::text('preferred_location',$candidate->preferred_location, ['class' => 'form-control', 'placeholder' => 'preferred_location'])}} --}}
+                        {{Form::select('preferred_location',array('Delhi' => 'Delhi', 'Mumbai' => 'Mumbai', 'Chennai' => 'Chennai', 'Kolkata' => 'Kolkata', 'Bangalore' => 'Bangalore'),$candidate->preferred_location, ['class' => 'form-control', 'placeholder' => 'preferred_location'])}}
                     </div>
 
                     <div class = "form-group">
@@ -101,13 +110,18 @@
                     </div>
 
                     <div class = "form-group">
+                            {{Form::label('other_skills','Skills')}}
+                            {{Form::textarea('other_skills','', ['id' => 'article-ckeditor', 'class' => 'form-control', 'placeholder' => 'Other Skills'])}}
+                    </div>
+
+                    <div class = "form-group">
                         {{Form::label('experience','Experience')}}
-                        {{Form::select('experience',array('0 years' => 'Fresher', '1 year' => '1 year', '2 years' => '2 years', '3 years' => '3 years'), '0', ['class' => 'form-control', 'placeholder' => 'experience'])}}
+                        {{Form::select('experience',array('0 years' => 'Fresher', '1 year' => '1 year', '2 years' => '2 years', '3 years' => '3 years'), $candidate->experience, ['class' => 'form-control', 'placeholder' => 'experience'])}}
                     </div>
 
                     <div class = "form-group">
                         {{Form::label('salary','Salary')}}
-                        {{Form::select('salary',array('2.5 Lakhs' => '2.5 Lakhs', '3 Lakhs' => '3 Lakhs', '4 Lakhs' => '4 Lakhs', '5 Lakhs' => '5 Lakhs', '6 Lakhs' => '6 Lakhs'), '2.5 Lakhs', ['class' => 'form-control', 'placeholder' => 'salary'])}}
+                        {{Form::select('salary',array('2.5 Lakhs' => '2.5 Lakhs', '3 Lakhs' => '3 Lakhs', '4 Lakhs' => '4 Lakhs', '5 Lakhs' => '5 Lakhs', '6 Lakhs' => '6 Lakhs'), $candidate->salary, ['class' => 'form-control', 'placeholder' => 'salary'])}}
                     </div>
 
                     <div class = "form-group">

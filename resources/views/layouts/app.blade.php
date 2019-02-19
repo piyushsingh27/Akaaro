@@ -129,6 +129,9 @@
             <script>
                 CKEDITOR.replace( 'article-ckeditor' );
             </script>
+            <script>
+                    CKEDITOR.replace( 'other_skills' );
+            </script>
         </main>
     </div>
 </body>

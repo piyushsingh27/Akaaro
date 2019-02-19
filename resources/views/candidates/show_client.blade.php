@@ -47,6 +47,8 @@
                                 <hr>
                                 <h5>Key Skills: {!!$candidate->skills!!}</h5>
                                 <hr>
+                                <h5>Skills: {!!$candidate->other_skills!!}</h5>
+                                <hr>
                                 <h5>Experience: {{$candidate->experience}}</h5>
                                 <hr>
                                 <h5>Salary: {{$candidate->salary}}</h5>

@@ -33,6 +33,7 @@ class CreateCandidatesTable extends Migration
             $table->string('college_PG')->nullable();
             $table->string('aggregate_PG')->nullable();
             $table->string('skills');
+            $table->string('other_skills');
             $table->string('experience')->nullable();
             $table->string('salary')->nullable();
             $table->date('cv_last_modified')->nullable();

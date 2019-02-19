@@ -38,12 +38,17 @@
 
                     <div class = "form-group">
                         {{Form::label('current_location','Current_location')}}
-                        {{Form::text('current_location','', ['class' => 'form-control', 'placeholder' => 'current_location'])}}
+                        {{-- @foreach ($cities as $city)
+                            {{Form::select('current_location', $city->cities,null,['class' => 'form-control', 'placeholder' => 'current_location'])}}   
+                        @endforeach --}}
+                        {{Form::select('current_location',array('Delhi' => 'Delhi', 'Mumbai' => 'Mumbai', 'Chennai' => 'Chennai', 'Kolkata' => 'Kolkata', 'Bangalore' => 'Bangalore'),'', ['class' => 'form-control', 'placeholder' => 'current_location'])}}
+                        
                     </div>
 
                     <div class = "form-group">
                         {{Form::label('preferred_location','Preferred_location')}}
-                        {{Form::text('preferred_location','', ['class' => 'form-control', 'placeholder' => 'preferred_location'])}}
+                        {{-- {{Form::text('preferred_location','', ['class' => 'form-control', 'placeholder' => 'preferred_location'])}} --}}
+                        {{Form::select('preferred_location',array('Delhi' => 'Delhi', 'Mumbai' => 'Mumbai', 'Chennai' => 'Chennai', 'Kolkata' => 'Kolkata', 'Bangalore' => 'Bangalore'),'', ['class' => 'form-control', 'placeholder' => 'preferred_location'])}}
                     </div>
 
                     <div class = "form-group">
@@ -99,6 +104,11 @@
                     <div class = "form-group">
                             {{Form::label('skills','Key Skills')}}
                             {{Form::textarea('skills','', ['id' => 'article-ckeditor', 'class' => 'form-control', 'placeholder' => 'Key Skills'])}}
+                    </div>
+
+                    <div class = "form-group">
+                            {{Form::label('other_skills','Skills')}}
+                            {{Form::textarea('other_skills','', ['id' => 'article-ckeditor', 'class' => 'form-control', 'placeholder' => 'Other Skills'])}}
                     </div>
 
                     <div class = "form-group">

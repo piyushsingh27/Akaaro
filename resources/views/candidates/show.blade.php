@@ -23,7 +23,7 @@
                                 <hr>
                                 <h5>Current_location: {{$candidate->current_location}}</h5>
                                 <hr>
-                                <h5>Preferred_location: {{$candidate->preffered_location}}</h5>
+                                <h5>Preferred_location: {{$candidate->preferred_location}}</h5>
                                 <hr>
                                 <h5>School_10th: {{$candidate->school_10th}}</h5>
                                 <hr>
@@ -46,6 +46,8 @@
                                 <h5>Aggregate_PG: {{$candidate->aggregate_PG}}</h5>
                                 <hr>
                                 <h5>Key Skills: {!!$candidate->skills!!}</h5>
+                                <hr>
+                                <h5>Skills: {!!$candidate->other_skills!!}</h5>
                                 <hr>
                                 <h5>Experience: {{$candidate->experience}}</h5>
                                 <hr>
