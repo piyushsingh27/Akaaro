@@ -1,3 +1,32 @@
+<style>
+    input {
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('assets/staticimages/searchicon.png');
+    background-position: 8px 15px; 
+    background-size: 25px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    }
+    select {
+        width: 100%;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        background-color: white;
+        background-image: url('assets/staticimages/searchicon.png');
+        background-position: 8px 15px; 
+        background-size: 25px; 
+        background-repeat: no-repeat;
+        padding: 12px 20px 12px 40px;
+         }
+</style>
+
 @extends('layouts.app')
 
 @section('content')
@@ -14,7 +43,7 @@
                             <input type="text" name="query" id="query" value="{{request()->input('query')}}" class="search-box" placeholder="Candidates Names">
                         </form>
 
-                        <hr>
+                        <hr>    
 
                         <form action="{{route('search_location')}}" method="GET" class="search-form">
                                 <span class="glyphicon glyphicon-search"></span>
@@ -25,7 +54,13 @@
 
                         <form action="{{route('search_marks12th')}}" method="GET" class="search-form">
                                 <span class="glyphicon glyphicon-search"></span>
-                            <input type="text" name="query" id="query" value="{{request()->input('query')}}" class="search-box" placeholder="Marks 12th">
+                            <input name="query" id="query" value="{{request()->input('query')}}" class="search-box" placeholder="Marks 12th">
+                                    {{--<option></option>
+                                    <option value="60-65">60-65</option>
+                                    <option value="65-70">65-70</option>
+                                    <option value="75-80">75-80</option>
+                                    <option value="80-85">80-85</option>
+                            </select>--}}
                         </form>
 
                         <hr>
@@ -82,3 +117,11 @@
     </div>
 </div>
 @endsection
+
+<script type="text/javascript">
+    $("#query").select2({
+        placeholder:'12th Marks'
+    });
+
+</script>
+

@@ -41,7 +41,7 @@
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Admin Section') }}</a>
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Creator Section') }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('client.login') }}">{{ __('Login') }}</a>

@@ -28,7 +28,7 @@
 
                 
                      <div class="card-body">
-                        <a href = "candidates/create" class = "btn btn-primary">Enter Details</a>
+                        <a href = "candidates/create" class = "btn btn-primary">New Candidate</a>
                         <hr>
                         <h3>Registered Candidates</h3>
                         @if(count($candidates) > 0)
