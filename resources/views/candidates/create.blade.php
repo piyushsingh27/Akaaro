@@ -58,7 +58,7 @@
 
                     <div class = "form-group">
                         {{Form::label('marks_10th','Marks_10th')}}
-                        {{Form::text('marks_10th','', ['class' => 'form-control', 'placeholder' => 'marks_10th'])}}
+                        {{Form::text('marks_10th','', ['class' => 'form-control', 'placeholder' => 'Aggregate Percentage'])}}
                     </div>
 
                     <div class = "form-group">
@@ -68,7 +68,7 @@
 
                     <div class = "form-group">
                         {{Form::label('marks_12th','Marks_12th')}}
-                        {{Form::text('marks_12th','', ['class' => 'form-control', 'placeholder' => 'marks_12th'])}}
+                        {{Form::text('marks_12th','', ['class' => 'form-control', 'placeholder' => 'Aggregate Percentage'])}}
                     </div>
 
                     <div class = "form-group">
@@ -83,7 +83,7 @@
 
                     <div class = "form-group">
                         {{Form::label('aggregate_UG','Aggregate_UG')}}
-                        {{Form::text('aggregate_UG','', ['class' => 'form-control', 'placeholder' => 'aggregate_UG'])}}
+                        {{Form::text('aggregate_UG','', ['class' => 'form-control', 'placeholder' => 'Aggregate Percentage'])}}
                     </div>
 
                     <div class = "form-group">
@@ -98,7 +98,7 @@
 
                     <div class = "form-group">
                         {{Form::label('aggregate_PG','Aggregate_PG')}}
-                        {{Form::text('aggregate_PG','', ['class' => 'form-control', 'placeholder' => 'aggregate_PG'])}}
+                        {{Form::text('aggregate_PG','', ['class' => 'form-control', 'placeholder' => 'Aggregate Percentage'])}}
                     </div>
 
                     <div class = "form-group">
