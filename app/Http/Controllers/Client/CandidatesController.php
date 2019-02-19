@@ -43,11 +43,11 @@ class CandidatesController extends Controller
 
         $query = $request->input('query');
 
-        $candidates = Candidate::where('name', 'like', "%$query%")->paginate(1);
+        $candidates = Candidate::where('name', 'like', "%$query%")->paginate(10);
 
         // $candidates = Candidate::search($query)->paginate(5);
 
-        return view('search_results_client')->with('candidates', $candidates);
+        return view('search-client_index')->with('candidates', $candidates);
     }
 
     public function search_location(Request $request)
@@ -58,9 +58,9 @@ class CandidatesController extends Controller
 
         $query = $request->input('query');
         
-        $candidates = Candidate::where('preferred_location', 'like', "%$query%")->paginate(1);
+        $candidates = Candidate::where('preferred_location', 'like', "%$query%")->paginate(10);
 
-        return view('search_results_client')->with('candidates', $candidates);
+        return view('search-client_index')->with('candidates', $candidates);
     }
 
     public function search_marks12th(Request $request)
@@ -71,9 +71,9 @@ class CandidatesController extends Controller
 
         $query = $request->input('query');
         
-        $candidates = Candidate::where('marks_12th', 'like', "%$query%")->paginate(1);
+        $candidates = Candidate::where('marks_12th', 'like', "%$query%")->paginate(10);
 
-        return view('search_results_client')->with('candidates', $candidates);
+        return view('search-client_index')->with('candidates', $candidates);
     }
 
     public function search_aggregate_UG(Request $request)
@@ -84,9 +84,9 @@ class CandidatesController extends Controller
 
         $query = $request->input('query');
         
-        $candidates = Candidate::where('aggregate_UG', 'like', "%$query%")->paginate(1);
+        $candidates = Candidate::where('aggregate_UG', 'like', "%$query%")->paginate(10);
 
-        return view('search_results_client')->with('candidates', $candidates);
+        return view('search-client_index')->with('candidates', $candidates);
     }
 
     public function search_aggregate_PG(Request $request)
@@ -97,9 +97,9 @@ class CandidatesController extends Controller
 
         $query = $request->input('query');
         
-        $candidates = Candidate::where('aggregate_PG', 'like', "%$query%")->paginate(1);
+        $candidates = Candidate::where('aggregate_PG', 'like', "%$query%")->paginate(10);
 
-        return view('search_results_client')->with('candidates', $candidates);
+        return view('search-client_index')->with('candidates', $candidates);
     }
 
     public function search_salary(Request $request)
@@ -110,9 +110,9 @@ class CandidatesController extends Controller
 
         $query = $request->input('query');
         
-        $candidates = Candidate::where('salary', 'like', "%$query%")->paginate(1);
+        $candidates = Candidate::where('salary', 'like', "%$query%")->paginate(10);
 
-        return view('search_results_client')->with('candidates', $candidates);
+        return view('search-client_index')->with('candidates', $candidates);
     }
 
     public function search_status(Request $request)
@@ -123,9 +123,9 @@ class CandidatesController extends Controller
 
         $query = $request->input('query');
         
-        $candidates = Candidate::where('status', 'like', "%$query%")->paginate(1);
+        $candidates = Candidate::where('status', 'like', "%$query%")->paginate(10);
 
-        return view('search_results_client')->with('candidates', $candidates);
+        return view('search-client_index')->with('candidates', $candidates);
     }
 
     public function search_skills(Request $request)
@@ -136,9 +136,9 @@ class CandidatesController extends Controller
 
         $query = $request->input('query');
         
-        $candidates = Candidate::where('skills', 'like', "%$query%")->paginate(1);
+        $candidates = Candidate::where('skills', 'like', "%$query%")->paginate(10);
 
-        return view('search_results_client')->with('candidates', $candidates);
+        return view('search-client_index')->with('candidates', $candidates);
     }
 
     public function searchpage()

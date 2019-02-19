@@ -1,3 +1,19 @@
+<style>
+    input {
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('assets/staticimages/searchicon.png');
+    background-position: 8px 15px; 
+    background-size: 25px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    }
+</style>
+
 @extends('layouts.app_client')
 
 @section('content')
