@@ -45,6 +45,8 @@
                                 <hr>
                                 <h5>Aggregate_PG: {{$candidate->aggregate_PG}}</h5>
                                 <hr>
+                                <h5>Key Skills: {!!$candidate->skills!!}</h5>
+                                <hr>
                                 <h5>Experience: {{$candidate->experience}}</h5>
                                 <hr>
                                 <h5>Salary: {{$candidate->salary}}</h5>
