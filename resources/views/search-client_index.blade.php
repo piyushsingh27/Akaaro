@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('List of Candidates') }}</div>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $candidates->total() }} result(s) for '{{request()->input('query')}}'</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $candidates->total() }} result(s)</p>
                 
                 <div class="card-body">
                             {{-- <h1>Candidates</h1> --}}

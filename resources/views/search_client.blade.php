@@ -60,9 +60,93 @@
 
                         <hr>
 
-                        <form action="{{route('client.search_skills')}}" method="GET" class="search-form">
+                        {{-- <form action="{{route('client.search_skills')}}" method="GET" class="search-form">
                                 <span class="glyphicon glyphicon-search"></span>
                             <input type="text" name="query" id="query" value="{{request()->input('query')}}" class="search-box" placeholder="Skills">
+                        </form> --}}
+
+                        <form action="{{route('client.search_skills')}}" method="GET">
+                            @csrf
+                                <span class="glyphicon glyphicon-search"></span>
+                            <input type="text" name="query" id="query" value="{{request()->input('query')}}" class="search-box" placeholder="Skill 1">
+                            <br>
+                            <br>
+                            <input type="text" name="query1" id="query1" value="{{request()->input('query1')}}" class="search-box" placeholder="Skill 2">
+                            <br>
+                            <br>
+                            <input type="text" name="query2" id="query2" value="{{request()->input('query2')}}" class="search-box" placeholder="Skill 3">
+                            <br>
+                            <br>
+                            <div class="form-group row mb-0">
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('Search Skill based Candidates') }}
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <form action="{{route('client.search_skills&')}}" method="GET">
+                            @csrf
+                                <span class="glyphicon glyphicon-search"></span>
+                            <input type="text" name="query" id="query" value="{{request()->input('query')}}" class="search-box" placeholder="Skill 1">
+                            <br>
+                            <br>
+                            <input type="text" name="query1" id="query1" value="{{request()->input('query1')}}" class="search-box" placeholder="Skill 2">
+                            <br>
+                            <br>
+                            <input type="text" name="query2" id="query2" value="{{request()->input('query2')}}" class="search-box" placeholder="Skill 3">
+                            <br>
+                            <br>
+                            <div class="form-group row mb-0">
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('Search Skill based Candidates') }}
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <form action="{{route('client.search_resume')}}" method="GET">
+                            @csrf
+                                <span class="glyphicon glyphicon-search"></span>
+                            <input type="text" name="query" id="query" value="{{request()->input('query')}}" class="search-box" placeholder="Skill 1">
+                            <br>
+                            <br>
+                            <input type="text" name="query1" id="query1" value="{{request()->input('query1')}}" class="search-box" placeholder="Skill 2">
+                            <br>
+                            <br>
+                            <input type="text" name="query2" id="query2" value="{{request()->input('query2')}}" class="search-box" placeholder="Skill 3">
+                            <br>
+                            <br>
+                            <div class="form-group row mb-0">
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('Search resume based Candidates') }}
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <form action="{{route('client.search_resume&')}}" method="GET">
+                            @csrf
+                                <span class="glyphicon glyphicon-search"></span>
+                            <input type="text" name="query" id="query" value="{{request()->input('query')}}" class="search-box" placeholder="Skill 1">
+                            <br>
+                            <br>
+                            <input type="text" name="query1" id="query1" value="{{request()->input('query1')}}" class="search-box" placeholder="Skill 2">
+                            <br>
+                            <br>
+                            <input type="text" name="query2" id="query2" value="{{request()->input('query2')}}" class="search-box" placeholder="Skill 3">
+                            <br>
+                            <br>
+                            <div class="form-group row mb-0">
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('Search resume based Candidates') }}
+                                    </button>
+                                </div>
+                            </div>
                         </form>
 
                         <hr>

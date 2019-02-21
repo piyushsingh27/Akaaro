@@ -88,6 +88,9 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             Route::get('/searchsalarycl', 'CandidatesController@search_salary')->name('client.search_salary');
             Route::get('/searchstatuscl', 'CandidatesController@search_status')->name('client.search_status');
             Route::get('/searchskillscl', 'CandidatesController@search_skills')->name('client.search_skills');
+            Route::get('/searchskillscl&', 'CandidatesController@search_skills_and')->name('client.search_skills&');
+            Route::get('/searchresumecl', 'CandidatesController@search_resume')->name('client.search_resume');
+            Route::get('/searchresumecl&', 'CandidatesController@search_resume_and')->name('client.search_resume&');
         });
     });
 });
