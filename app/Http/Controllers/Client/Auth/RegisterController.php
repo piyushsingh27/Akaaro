@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Auth;
 
 class RegisterController extends Controller
@@ -84,5 +85,13 @@ class RegisterController extends Controller
     protected function guard()
     {
         return Auth::guard('client');
+    }
+
+    public function register(Request $request)
+    {
+        $input = $request->all();
+        $user = $this->create($input)->toArray();
+
+        return redirect()->to('/client/login')->with('Success', "Please wait for admin authentication");
     }
 }

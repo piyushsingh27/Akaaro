@@ -6,11 +6,11 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Client extends Authenticatable
+class Admin extends Authenticatable
 {
     use Notifiable;
 
-    protected $guard = 'client';
+    protected $guard = 'admin';
 
     /**
      * The attributes that are mass assignable.
@@ -35,9 +35,14 @@ class Client extends Authenticatable
         return $this->hasMany('App\Candidate');
     }
 
-    public function admin()
+    public function clients()
     {
-        return $this->belongsTo('App\Admin');
+        return $this->hasMany('App\Client');
+    }
+
+    public function users()
+    {
+        return $this->hasMany('App\User');
     }
 
     // public function remarks()

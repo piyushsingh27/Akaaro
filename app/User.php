@@ -37,4 +37,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Remark');
     }
+
+    public function admin()
+    {
+        return $this->belongsTo('App\Admin');
+    }
 }

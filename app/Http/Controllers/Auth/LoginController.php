@@ -42,6 +42,31 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');   
     }
 
+    // public function login()
+    // {
+    //     $id = Auth::user()->id;
+        
+    //     $user = User::find($id);
+
+    //     if($user->flag == 1)
+    //     {
+    //         return redirect()->to('home')->with('Success', 'User activated');
+    //     }
+    //     else
+    //     {
+    //         return redirect()->to('login')->with('warning', 'Not activated');
+    //     }
+    // }
+
+    protected function credentials(Request $request)
+    {
+        return [
+            'email'=>$request->{$this->username()},
+            'password'=>$request->password,
+            'flag'=>1
+        ];
+    }
+
     public function logout(Request $request) {
         Auth::logout();
         Session::flush();

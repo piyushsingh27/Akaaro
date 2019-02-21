@@ -88,3 +88,26 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         });
     });
 });
+
+
+
+
+//Admin Routes
+
+Route::group(['middleware' => 'prevent-back-history'],function(){
+    Route::group(['namespace' => 'Admin'], function() {
+
+        Route::prefix('admin')->group(function() {
+            Route::get('/home', 'HomeController@index')->name('admin.home');
+            Route::get('/activate_user/{id}', 'HomeController@flagupdate_user');
+            Route::get('/activate_client/{id}', 'HomeController@flagupdate_client');
+
+            //Authentication Routes
+            Route::get('login', 'Auth\LoginController@showLoginForm')->name('admin.login');
+            Route::post('login', 'Auth\LoginController@login');
+            Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('admin.register');
+            Route::post('register', 'Auth\RegisterController@register');
+            Route::post('logout', 'Auth\LoginController@logout')->name('admin.logout');
+        });
+    });
+});
