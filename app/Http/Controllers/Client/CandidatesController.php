@@ -63,6 +63,19 @@ class CandidatesController extends Controller
         return view('search-client_index')->with('candidates', $candidates);
     }
 
+    public function search_current_location(Request $request)
+    {
+        $request->validate([
+            'query' => [ 'min:1'],
+        ]);
+
+        $query = $request->input('query');
+        
+        $candidates = Candidate::where('current_location', 'like', "%$query%")->paginate(10);
+
+        return view('search-client_index')->with('candidates', $candidates);
+    }
+
     public function search_marks12th(Request $request)
     {
         $request->validate([
@@ -145,8 +158,6 @@ class CandidatesController extends Controller
     {
         $request->validate([
             'query' => [ 'min:1'],
-            'query1' => ['min:1'],
-            'query2' => ['min:1'],
         ]);
 
         $query = $request->input('query');
@@ -183,8 +194,6 @@ class CandidatesController extends Controller
     {
         $request->validate([
             'query' => [ 'min:1'],
-            'query1' => ['min:1'],
-            'query2' => ['min:1'],
         ]);
 
         $query = $request->input('query');

@@ -43,6 +43,7 @@ Route::get('/searchpage', 'CandidatesController@searchpage')->name('searchpage')
 
 Route::get('/searchname', 'CandidatesController@search_name')->name('search_name');
 Route::get('/searchlocation', 'CandidatesController@search_location')->name('search_location');
+Route::get('/searchcurrentlocation', 'CandidatesController@search_current_location')->name('search_current_location');
 Route::get('/searchmarks12th', 'CandidatesController@search_marks12th')->name('search_marks12th');
 Route::get('/searchaggregate_UG', 'CandidatesController@search_aggregate_UG')->name('search_aggregateUG');
 Route::get('/searchaggregate_PG', 'CandidatesController@search_aggregate_PG')->name('search_aggregatePG');
@@ -82,6 +83,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
 
             Route::get('/searchnamecl', 'CandidatesController@search_name')->name('client.search_name');
             Route::get('/searchlocationcl', 'CandidatesController@search_location')->name('client.search_location');
+            Route::get('/searchcurrentlocationcl', 'CandidatesController@search_current_location')->name('client.search_current_location');
             Route::get('/searchmarks12thcl', 'CandidatesController@search_marks12th')->name('client.search_marks12th');
             Route::get('/searchaggregate_UGcl', 'CandidatesController@search_aggregate_UG')->name('client.search_aggregateUG');
             Route::get('/searchaggregate_PGcl', 'CandidatesController@search_aggregate_PG')->name('client.search_aggregatePG');
@@ -106,7 +108,9 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         Route::prefix('admin')->group(function() {
             Route::get('/home', 'HomeController@index')->name('admin.home');
             Route::get('/activate_user/{id}', 'HomeController@flagupdate_user');
+            Route::get('/deactivate_user/{idd}', 'HomeController@flagdowngrade_user');
             Route::get('/activate_client/{id}', 'HomeController@flagupdate_client');
+            Route::get('/deactivate_client/{idd}', 'HomeController@flagdowngrade_client');
 
             //Authentication Routes
             Route::get('login', 'Auth\LoginController@showLoginForm')->name('admin.login');

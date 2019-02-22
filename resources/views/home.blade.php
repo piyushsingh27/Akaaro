@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+    {{-- <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> --}}
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -23,10 +28,63 @@
                     </form> --}}
 
                     <a href = "{{route('searchpage')}}" class = "btn btn-primary">Search</a>
+                    <br>
+                    <br>
+                    <br>
+                    
+
+                    <table class = "table">
+                        <tr>
+                            <td>
+                            <div class="col-md-8">   
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Status
+                                <span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{{action('CandidatesController@index_hired')}}">Hired</a></li>
+                                <li><a class="dropdown-item" href="{{action('CandidatesController@index_selected')}}">Selected</a></li>
+                                <li><a class="dropdown-item" href="{{action('CandidatesController@index_hold')}}">On Hold</a></li>
+                                <li><a class="dropdown-item" href="{{action('CandidatesController@index_rejected')}}">Rejected</a></li>
+                                </ul>
+                            </div>
+                            </div>
+                            </td>
+
+                        {{-- <div class="col-md-3 offset-md-3 "> --}}
+                            <td>
+                            <div class="col-md-8">                                
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Interview
+                                <span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="{{action('CandidatesController@index_face2face')}}">Personal Interview</a></li>
+                                    <li><a class="dropdown-item" href="{{action('CandidatesController@index_telephonic')}}">Telephonic Interview</a></li>
+                                </ul>
+                            </div>
+                            </div>
+                            </td>
+                        {{-- </div> --}}
+
+                            <td>
+                            <div class="col-md-8">
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Submission
+                                <span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="{{action('CandidatesController@index_ISUB')}}">ISUB</a></li>
+                                    <li><a class="dropdown-item" href="{{action('CandidatesController@index_CSUB')}}">CSUB</a></li>
+                                </ul>
+                            </div>
+                            </div>
+                            </td>
+                        </tr>
+                    </table>
+
 
                 </div>
 
-                
+                <hr>
+
                      <div class="card-body">
                         <a href = "candidates/create" class = "btn btn-primary">New Candidate</a>
                         <hr>

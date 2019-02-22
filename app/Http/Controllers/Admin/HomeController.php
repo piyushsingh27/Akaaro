@@ -37,30 +37,82 @@ class HomeController extends Controller
                                             'clients' => $adminn->clients]);
     }
 
-    public function flagupdate_user($admin_id)
+    public function flagupdate_user($user_id)
     {
-        $admin_id = auth()->user()->id;
-        $admin = Admin::find($admin_id);
+        // $admin_id = auth()->user()->id;
+        // $admin = Admin::find($admin_id);
 
-        foreach($admin->users as $admin->user)
-        {
-            $admin->user->flag = 1;
-            $admin->user->save();
-        }
+        // foreach($admin->users as $admin->user)
+        // {
+        //     $admin->user->flag = 1;
+        //     $admin->user->save();
+        // }
+        // return redirect()->to('/admin/home')->with('Success', "User activated");
+
+        $user = User::find($user_id);
+        $user->flag = 1;
+        $user->save();
+
         return redirect()->to('/admin/home')->with('Success', "User activated");
+
+
     }
 
-    public function flagupdate_client($admin_id)
+    public function flagdowngrade_user($user_id)
     {
-        $admin_id = auth()->user()->id;
-        $adminn = Admin::find($admin_id);
+        // $admin_id = auth()->user()->id;
+        // $admin = Admin::find($admin_id);
 
-        foreach($adminn->clients as $adminn->client)
-        {
-            $adminn->client->flag = 1;
-            $adminn->client->save();
-        }
-        return redirect()->to('/admin/home')->with('Success', "Client activated");
+        // foreach($admin->users as $admin->user)
+        // {
+        //     $admin->user->flag = 0;
+        //     $admin->user->save();
+        // }
+        // return redirect()->to('/admin/home')->with('Success', "User deactivated");
+
+        $user = User::find($user_id);
+        $user->flag = 0;
+        $user->save();
+
+        return redirect()->to('/admin/home')->with('Success', "User deactivated");
+    }
+
+    public function flagupdate_client($client_id)
+    {
+        // $admin_id = auth()->user()->id;
+        // $adminn = Admin::find($admin_id);
+
+        // foreach($adminn->clients as $adminn->client)
+        // {
+        //     $adminn->client->flag = 1;
+        //     $adminn->client->save();
+        // }
+        // return redirect()->to('/admin/home')->with('Success', "Client activated");
+
+        $client = Client::find($client_id);
+        $client->flag = 1;
+        $client->save();
+
+        return redirect()->to('/admin/home')->with('Success', "Client Activated");
+    }
+
+    public function flagdowngrade_client($client_id)
+    {
+        // $admin_id = auth()->user()->id;
+        // $adminn = Admin::find($admin_id);
+
+        // foreach($adminn->clients as $adminn->client)
+        // {
+        //     $adminn->client->flag = 0;
+        //     $adminn->client->save();
+        // }
+        // return redirect()->to('/admin/home')->with('Success', "Client deactivated");
+
+        $client = Client::find($client_id);
+        $client->flag = 0;
+        $client->save();
+
+        return redirect()->to('/admin/home')->with('Success', "Client deactivated");
     }
 
     // public function flag_update()

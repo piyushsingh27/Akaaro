@@ -55,7 +55,7 @@
                             <input type="text" name="query" id="query" class="search-box" placeholder="Search for Candidates">
                         </form> --}}
 
-                        <li class="nav-item dropdown">
+                        {{-- <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 Status <span class="caret"></span>
                             </a>
@@ -66,9 +66,9 @@
                                     <a class="dropdown-item" href="{{action('CandidatesController@index_hold')}}">On Hold</a>
                                     <a class="dropdown-item" href="{{action('CandidatesController@index_rejected')}}">Rejected</a>
                             </div>
-                        </li>
+                        </li> --}}
 
-                        <li class="nav-item dropdown">
+                        {{-- <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     Interview <span class="caret"></span>
                                 </a>
@@ -77,9 +77,9 @@
                                         <a class="dropdown-item" href="{{action('CandidatesController@index_face2face')}}">Personal Interview</a>
                                         <a class="dropdown-item" href="{{action('CandidatesController@index_telephonic')}}">Telephonic Interview</a>  
                                 </div>
-                        </li>
+                        </li> --}}
     
-                        <li class="nav-item dropdown">
+                        {{-- <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     Submission <span class="caret"></span>
                                 </a>
@@ -88,7 +88,7 @@
                                     <a class="dropdown-item" href="{{action('CandidatesController@index_ISUB')}}">ISUB</a>
                                     <a class="dropdown-item" href="{{action('CandidatesController@index_CSUB')}}">CSUB</a>  
                                 </div>
-                        </li>
+                        </li> --}}
 
 
 

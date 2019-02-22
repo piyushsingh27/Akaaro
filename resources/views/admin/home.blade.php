@@ -49,7 +49,7 @@
                                     @if ($activated_client == 0)
                                         <a href="{{action('Admin\HomeController@flagupdate_client', ['id' => $client->id])}}" class="btn btn-default">Activate</a>
                                     @elseif ($activated_client == 1)
-                                        <a class="btn btn-default">Activated</a>
+                                        <a href="{{action('Admin\HomeController@flagdowngrade_client', ['id' => $client->id])}}" class="btn btn-default">Deactivate</a>
                                     @endif
                                 </td>
                                 {{-- <td> --}}
@@ -89,8 +89,9 @@
                                         @if ($activated_user == 0)
                                             <a href="{{action('Admin\HomeController@flagupdate_user', ['id' => $user->id])}}" class="btn btn-default">Activate</a>
                                         @elseif ($activated_user == 1)
-                                            <a class="btn btn-default">Activated</a>
+                                            <a href="{{action('Admin\HomeController@flagdowngrade_user', ['id' => $user->id])}}" class="btn btn-default">Deactivate</a>
                                         @endif 
+                                        {{-- {{$user->id}} --}}
                                     </td>
                                     {{-- <td> --}}
                                             {{-- {!! Form::model($candidate, array('route' => array('candidates.destroy', $candidate->id), 'method' => 'DELETE')) !!}
