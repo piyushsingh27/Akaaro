@@ -308,7 +308,9 @@ class CandidatesController extends Controller
 
     public function searchpage()
     {
-        return view('search');
+        $candidates = Candidate::all();
+
+        return view('search')->with('candidates', $candidates);
     }
 
 

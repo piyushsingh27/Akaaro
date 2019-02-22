@@ -228,7 +228,9 @@ class CandidatesController extends Controller
 
     public function searchpage()
     {
-        return view('search_client');
+        $candidates = Candidate::all();
+
+        return view('search_client')->with('candidates', $candidates);;
     }
 
 
