@@ -48,6 +48,7 @@ Route::get('/searchmarks12th', 'CandidatesController@search_marks12th')->name('s
 Route::get('/searchaggregate_UG', 'CandidatesController@search_aggregate_UG')->name('search_aggregateUG');
 Route::get('/searchaggregate_PG', 'CandidatesController@search_aggregate_PG')->name('search_aggregatePG');
 Route::get('/searchsalary', 'CandidatesController@search_salary')->name('search_salary');
+Route::get('/searchexperience', 'CandidatesController@search_experience')->name('search_experience');
 Route::get('/searchstatus', 'CandidatesController@search_status')->name('search_status');
 Route::get('/searchskills', 'CandidatesController@search_skills')->name('search_skills');
 Route::get('/searchskills&', 'CandidatesController@search_skills_and')->name('search_skills&');
@@ -88,6 +89,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             Route::get('/searchaggregate_UGcl', 'CandidatesController@search_aggregate_UG')->name('client.search_aggregateUG');
             Route::get('/searchaggregate_PGcl', 'CandidatesController@search_aggregate_PG')->name('client.search_aggregatePG');
             Route::get('/searchsalarycl', 'CandidatesController@search_salary')->name('client.search_salary');
+            Route::get('/searchexperiencecl', 'CandidatesController@search_experience')->name('client.search_experience');
             Route::get('/searchstatuscl', 'CandidatesController@search_status')->name('client.search_status');
             Route::get('/searchskillscl', 'CandidatesController@search_skills')->name('client.search_skills');
             Route::get('/searchskillscl&', 'CandidatesController@search_skills_and')->name('client.search_skills&');

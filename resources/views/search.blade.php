@@ -275,6 +275,31 @@
 
                         <hr>
 
+                        <div class="col-md-10 offset-md-1">
+                                <form action="{{route('search_experience')}}" method="GET">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    <select type="text" name="query" id="query" {{--value="{{request()->input('query')}}"--}} class="search-box" placeholder="Salary">
+                                    <option value="" style="color:darkgray;">Experience</option>
+                                    @foreach ($candidates as $candidate)
+                                        <option value="{{$candidate->experience}}">{{$candidate->experience}}</option>
+                                        {{-- <option value="{{$candidate->salary}}">1 Lakhs - 3 Lakhs</option> --}}
+                                        {{-- <option value="{{$candidate->salary}}">3 Lakhs - 6 Lakhs</option> --}}
+                                    @endforeach
+                                    </select>
+                                    <br>
+                                    <br>
+                                        <div class="form-group row mb-0">
+                                            <div class="col-md-6 ">
+                                                <button type="submit" class="btn btn-primary">
+                                                    {{ __('Search') }}
+                                                </button>
+                                            </div>
+                                        </div>
+                                </form>
+                            </div>
+
+                        <hr>
+
                         {{-- <form action="{{route('search_status')}}" method="GET" class="search-form">
                                 <span class="glyphicon glyphicon-search"></span>
                             <input type="text" name="query" id="query" value="{{request()->input('query')}}" class="search-box" placeholder="Status">

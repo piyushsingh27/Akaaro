@@ -195,6 +195,19 @@ class CandidatesController extends Controller
         return view('search_index')->with('candidates', $candidates);
     }
 
+    public function search_experience(Request $request)
+    {
+        $request->validate([
+            'query' => [ 'min:1'],
+        ]);
+
+        $query = $request->input('query');
+        
+        $candidates = Candidate::where('experience', 'like', "%$query%")->paginate(10);
+
+        return view('search_index')->with('candidates', $candidates);
+    }
+
     public function search_status(Request $request)
     {
         $request->validate([
