@@ -26,6 +26,8 @@
 
                     {{-- <a href = "{{route('client.searchpage')}}" class = "btn btn-primary">Search</a> --}}
 
+                    {{-- <a href = "{{action('JobDescriptionController@create')}}" class = "btn btn-primary">New Job</a> --}}
+
                 </div>
 
                 

@@ -40,6 +40,12 @@ class Client extends Authenticatable
         return $this->belongsTo('App\Admin');
     }
 
+    public function job_descriptions()
+    {
+        return $this->hasMany('App\JobDescription');
+    }
+
+
     // public function remarks()
     // {
     //     return $this->hasMany('App\Remark');

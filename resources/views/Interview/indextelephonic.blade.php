@@ -27,7 +27,7 @@
                                         </div>
                                     </div>
                                     @endif
-                                        
+                                    {{$candidates->links()}}    
                                 @endforeach
                                 {{-- {{$candidates->links()}} --}}
 

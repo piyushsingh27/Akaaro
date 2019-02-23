@@ -123,3 +123,6 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         });
     });
 });
+
+Route::resource('/jobs', 'JobDescriptionController');
+// Route::get('/jobss', 'JobDescriptionController@indextest');
