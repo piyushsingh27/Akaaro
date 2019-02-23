@@ -26,7 +26,7 @@ class CandidatesController extends Controller
      */
     public function index()
     {
-        $candidates = Candidate::orderBy('created_at','desc')->get();
+        $candidates = Candidate::orderBy('created_at','desc')->paginate(10);
         //$posts = Post::orderBy('title','desc')->take(1)->get();
        //$posts = DB::select('SELECT * FROM posts');
        //$posts = Post::all();

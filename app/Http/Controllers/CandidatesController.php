@@ -27,7 +27,7 @@ class CandidatesController extends Controller
      */
     public function index()
     {
-        $candidates = Candidate::orderBy('created_at','desc')->get();
+        $candidates = Candidate::orderBy('created_at','desc')->paginate(10);
         //$posts = Post::orderBy('title','desc')->take(1)->get();
        //$posts = DB::select('SELECT * FROM posts');
        //$posts = Post::all();
@@ -35,68 +35,68 @@ class CandidatesController extends Controller
         return view('candidates.index')->with('candidates',$candidates);
     }
 
-    public function index_client()
-    {
-        $candidates = Candidate::orderBy('created_at','desc')->get();
-        //$posts = Post::orderBy('title','desc')->take(1)->get();
-       //$posts = DB::select('SELECT * FROM posts');
-       //$posts = Post::all();
-        //$candidates = Post::orderBy('id','desc')->paginate(10);
-        return view('candidates.index_client')->with('candidates',$candidates);
-    }
+    // public function index_client()
+    // {
+    //     $candidates = Candidate::orderBy('created_at','desc')->paginate(10);
+    //     //$posts = Post::orderBy('title','desc')->take(1)->get();
+    //    //$posts = DB::select('SELECT * FROM posts');
+    //    //$posts = Post::all();
+    //     //$candidates = Post::orderBy('id','desc')->paginate(10);
+    //     return view('candidates.index_client')->with('candidates',$candidates);
+    // }
 
     public function index_hired()
     {
-        $candidates = Candidate::orderBy('created_at','desc')->get();
+        $candidates = Candidate::orderBy('created_at','desc')->paginate(10);
 
         return view('Status.indexhired')->with('candidates',$candidates);
     }
 
     public function index_hold()
     {
-        $candidates = Candidate::orderBy('created_at','desc')->get();
+        $candidates = Candidate::orderBy('created_at','desc')->paginate(10);
 
         return view('Status.indexhold')->with('candidates',$candidates);
     }
 
     public function index_selected()
     {
-        $candidates = Candidate::orderBy('created_at','desc')->get();
+        $candidates = Candidate::orderBy('created_at','desc')->paginate(10);
 
         return view('Status.indexselected')->with('candidates',$candidates);
     }
 
     public function index_rejected()
     {
-        $candidates = Candidate::orderBy('created_at','desc')->get();
+        $candidates = Candidate::orderBy('created_at','desc')->paginate(10);
 
         return view('Status.indexrejected')->with('candidates',$candidates);
     }
 
     public function index_face2face()
     {
-        $candidates = Candidate::orderBy('created_at','desc')->get();
+        $candidates = Candidate::orderBy('created_at','desc')->paginate(10);
 
         return view('Interview.indexface2face')->with('candidates',$candidates);
     }
 
     public function index_telephonic()
     {
-        $candidates = Candidate::orderBy('created_at','desc')->get();
+        $candidates = Candidate::orderBy('created_at','desc')->paginate(10);
 
         return view('Interview.indextelephonic')->with('candidates',$candidates);
     }
 
     public function index_ISUB()
     {
-        $candidates = Candidate::orderBy('created_at','desc')->get();
+        $candidates = Candidate::orderBy('created_at','desc')->paginate(10);
 
         return view('Submission.indexIsub')->with('candidates',$candidates);
     }
 
     public function index_CSUB()
     {
-        $candidates = Candidate::orderBy('created_at','desc')->get();
+        $candidates = Candidate::orderBy('created_at','desc')->paginate(10);
 
         return view('Submission.indexCsub')->with('candidates',$candidates);
     }
