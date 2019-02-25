@@ -22,7 +22,7 @@
                     <input type="text" name="query" id="query" value="{{request()->input('query')}}" class="search-box" placeholder="Search for Candidates">
                     </form> --}}
 
-                    {{-- <a href = "{{route('searchpage')}}" class = "btn btn-primary">Search</a> --}}
+                    <a href = "{{route('admin.searchpage')}}" class = "btn btn-primary">Search</a>
 
                     {{-- <a href = "{{route('client.searchpage')}}" class = "btn btn-primary">Search</a> --}}
 
@@ -113,8 +113,8 @@
                         </div>
 
 
-                        <div class="card-body">
-                            {{-- <a href = "candidates/create" class = "btn btn-primary">Enter Details</a> --}}
+                        {{-- <div class="card-body">
+                            {{-- <a href = "candidates/create" class = "btn btn-primary">Enter Details</a> 
                             <hr>
                             <h3>Registered Candidates</h3>
                             @if(count($candidates) > 0)
@@ -131,7 +131,7 @@
                                     <th>Other Skills</th>
                                     <th>Experience</th>
                                     <th>Salary</th>
-                                    {{-- <th>CV last modified</th> --}}
+                                    {{-- <th>CV last modified</th> 
                                 </tr>  
                             @foreach($candidates as $candidate)
                                 <tr>
@@ -152,7 +152,7 @@
                                             {{Form::hidden('method','DELETE')}}
                                             {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
                                         {!!Form::close()!!} --}}
-                                    {{-- </td> --}}
+                                    {{-- </td> 
                                 </tr> 
         
                                 @endforeach
@@ -162,7 +162,7 @@
                             @endif 
         
         
-                        </div>
+                        </div> --}}
 
 
                         <div class="card-body">

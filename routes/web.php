@@ -114,12 +114,31 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             Route::get('/activate_client/{id}', 'HomeController@flagupdate_client');
             Route::get('/deactivate_client/{idd}', 'HomeController@flagdowngrade_client');
 
+            Route::resource('/candidatesad', 'CandidatesController');
+
             //Authentication Routes
             Route::get('login', 'Auth\LoginController@showLoginForm')->name('admin.login');
             Route::post('login', 'Auth\LoginController@login');
             Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('admin.register');
             Route::post('register', 'Auth\RegisterController@register');
             Route::post('logout', 'Auth\LoginController@logout')->name('admin.logout');
+
+
+            Route::get('/searchpagead', 'CandidatesController@searchpage')->name('admin.searchpage');
+
+            Route::get('/searchnamead', 'CandidatesController@search_name')->name('admin.search_name');
+            Route::get('/searchlocationad', 'CandidatesController@search_location')->name('admin.search_location');
+            Route::get('/searchcurrentlocationad', 'CandidatesController@search_current_location')->name('admin.search_current_location');
+            Route::get('/searchmarks12thad', 'CandidatesController@search_marks12th')->name('admin.search_marks12th');
+            Route::get('/searchaggregate_UGad', 'CandidatesController@search_aggregate_UG')->name('admin.search_aggregateUG');
+            Route::get('/searchaggregate_PGad', 'CandidatesController@search_aggregate_PG')->name('admin.search_aggregatePG');
+            Route::get('/searchsalaryad', 'CandidatesController@search_salary')->name('admin.search_salary');
+            Route::get('/searchexperiencead', 'CandidatesController@search_experience')->name('admin.search_experience');
+            Route::get('/searchstatusad', 'CandidatesController@search_status')->name('admin.search_status');
+            Route::get('/searchskillsad', 'CandidatesController@search_skills')->name('admin.search_skills');
+            Route::get('/searchskillsad&', 'CandidatesController@search_skills_and')->name('admin.search_skills&');
+            Route::get('/searchresumead', 'CandidatesController@search_resume')->name('admin.search_resume');
+            Route::get('/searchresumead&', 'CandidatesController@search_resume_and')->name('admin.search_resume&');
         });
     });
 });

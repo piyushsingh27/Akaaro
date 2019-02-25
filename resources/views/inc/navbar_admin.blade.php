@@ -102,7 +102,7 @@
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> 
 
-                            {{-- <a class="dropdown-item" href="{{action('CandidatesController@index')}}">List of candidates</a> --}}
+                            <a class="dropdown-item" href="{{action('Admin\CandidatesController@index')}}">List of candidates</a>
 
                             {{-- <a class="dropdown-item" href="{{action('JobDescriptionController@index')}}">List of Jobs</a> --}}
                         
