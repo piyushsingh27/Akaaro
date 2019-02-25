@@ -33,8 +33,16 @@ class HomeController extends Controller
         $admin_id = auth()->user()->id;
         $adminn = Admin::find($admin_id);
 
+        $admin_id = auth()->user()->id;
+        $adminnn = Admin::find($admin_id);
+
+        $admin_id = auth()->user()->id;
+        $adminnnn = Admin::find($admin_id);
+
         return view('admin.home')->with(['users' => $admin->users,
-                                            'clients' => $adminn->clients]);
+                                            'clients' => $adminn->clients,
+                                                'jobs' => $adminnn->job_descriptions,
+                                                    'candidates' => $adminnnn->candidates]);
     }
 
     public function flagupdate_user($user_id)

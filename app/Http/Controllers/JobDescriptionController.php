@@ -17,7 +17,7 @@ class JobDescriptionController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:client')->except(['index', 'show']);
+        $this->middleware('auth:client');
     }
 
     /**
@@ -69,8 +69,8 @@ class JobDescriptionController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'CompanyName' => ['required', 'string', 'regex:/^[a-zA-Z]+$/u', 'max:255'],
-            'jobtitle' => ['required', 'string', 'regex:/^[a-zA-Z]+$/u', 'max:255'],
+            'CompanyName' => ['required', 'string'],
+            'jobtitle' => ['required', 'string'],
             'designation' => ['required', 'string'],
             'skills_required' => ['required', 'string'],
             'candidate_count' => ['required', 'numeric'],
@@ -129,8 +129,8 @@ class JobDescriptionController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'CompanyName' => ['required', 'string', 'regex:/^[a-zA-Z]+$/u', 'max:255'],
-            'jobtitle' => ['required', 'string', 'regex:/^[a-zA-Z]+$/u', 'max:255'],
+            'CompanyName' => ['required', 'string'],
+            'jobtitle' => ['required', 'string'],
             'designation' => ['required', 'string'],
             'skills_required' => ['required', 'string'],
             'candidate_count' => ['required', 'numeric'],

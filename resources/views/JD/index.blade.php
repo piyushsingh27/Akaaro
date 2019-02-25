@@ -21,14 +21,18 @@
                                                 <table class="table">
                                                     <tr>
                                                         <td>
-                                                            {{-- <div class="col-md-6"> --}}
-                                                            <h3><a class="dropdown-item" href="jobs/{{$job->id}}">{{$job->jobtitle}}</a></h3>
-                                                            {{-- <a class="btn btn-primary pull-right" href="#">Link Client</a> --}}
-                                                            <div class="offset-md-1">
-                                                            <small>{{$job->created_at}} by {{$job->client->name}}</small>
-                                                            </div>
-                                                            {{-- </div> --}}
-                                                            </td>
+                                                            @if(!Auth::guest())
+                                                                @if(Auth::user()->id == $job->client_id)
+                                                                    {{-- <div class="col-md-6"> --}}
+                                                                    <h3><a class="dropdown-item" href="jobs/{{$job->id}}">{{$job->jobtitle}}</a></h3>
+                                                                    {{-- <a class="btn btn-primary pull-right" href="#">Link Client</a> --}}
+                                                                    <div class="offset-md-1">
+                                                                    <small>{{$job->created_at}} by {{$job->client->name}}</small>
+                                                                    </div>
+                                                                @endif
+                                                            @endif
+                                                                    {{-- </div> --}}
+                                                        </td>
                                                         {{-- <hr> --}}
                                                         </td>
 

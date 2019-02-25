@@ -53,4 +53,9 @@ class Candidate extends Model
     {
         return $this->belongsTo('App\Client');
     }
+
+    public function admin()
+    {
+        return $this->belongsTo('App\Admin');
+    }
 }
