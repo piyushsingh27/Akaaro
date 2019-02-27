@@ -15,8 +15,8 @@
                                 <hr>
                                 <h5>Job Title: {{$job->jobtitle}}</h5>
                                 <hr>
-                                <h5>Designation: {{$job->designation}}</h5>
-                                <hr>
+                                {{-- <h5>Designation: {{$job->designation}}</h5>
+                                <hr> --}}
                                 <h5>Skills Required: {!!$job->skills_required!!}</h5>
                                 <hr>
                                 <h5>Candidate Count: {{$job->candidate_count}}</h5>

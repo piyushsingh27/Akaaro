@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        {{-- <div class="col-md-12"> --}}
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Admin Dashboard</div>
 
@@ -173,8 +173,8 @@
                         </div> --}}
 
 
-                        <div class="card-body">
-                                {{-- <a href = "candidates/create" class = "btn btn-primary">Enter Details</a> --}}
+                        {{-- <div class="card-body">
+                                {{-- <a href = "candidates/create" class = "btn btn-primary">Enter Details</a> 
                                 <hr>
                                 <h3>Registered Jobs</h3>
                                 @if(count($jobs) > 0)
@@ -208,9 +208,9 @@
                                 @endif 
             
             
-                            </div>
+                            </div> --}}
             </div>
-        {{-- </div> --}}
+        </div>
     </div>
     {{-- <a class="btn btn-primary btn-lg" href="{{action('CandidatesController@index')}}" role="button">List of Candidates</a> --}}
 </div>

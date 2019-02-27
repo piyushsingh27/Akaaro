@@ -19,10 +19,10 @@
                         {{Form::text('jobtitle','', ['class' => 'form-control', 'placeholder' => 'Job Title'])}}
                     </div>
 
-                    <div class = "form-group">
+                    {{-- <div class = "form-group">
                         {{Form::label('designation','Designation')}}
                         {{Form::text('designation','', ['class' => 'form-control', 'placeholder' => 'Designation'])}}
-                    </div>
+                    </div> --}}
 
                     <div class = "form-group">
                             {{Form::label('skills_required','Skills Required')}}

@@ -104,7 +104,9 @@
     
                                 <a class="dropdown-item" href="{{action('CandidatesController@index')}}">List of candidates</a>
                             
-                                <a class="dropdown-item" href="{{action('RemarksController@index')}}">Remarks</a> 
+                                <a class="dropdown-item" href="{{action('RemarksController@index')}}">Remarks</a>
+                                
+                                <a class="dropdown-item" href="{{action('JobDescriptionsController@index')}}">Posted Jobs</a>
                                 
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();

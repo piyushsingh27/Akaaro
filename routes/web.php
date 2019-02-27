@@ -27,6 +27,8 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
 
 Route::resource('/candidates', 'CandidatesController');
 
+Route::resource('jobscr', 'JobDescriptionsController');
+
 Route::get('/candidateshired', 'CandidatesController@index_hired');
 Route::get('/candidateshold', 'CandidatesController@index_hold');
 Route::get('/candidatesselected', 'CandidatesController@index_selected');

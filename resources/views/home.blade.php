@@ -36,7 +36,7 @@
                     <table class = "table">
                         <tr>
                             <td>
-                            <div class="col-md-8">   
+                            <div class="col-md-10">   
                             <div class="dropdown">
                                 <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Status
                                 <span class="caret"></span></button>
@@ -45,6 +45,8 @@
                                 <li><a class="dropdown-item" href="{{action('CandidatesController@index_selected')}}">Selected</a></li>
                                 <li><a class="dropdown-item" href="{{action('CandidatesController@index_hold')}}">On Hold</a></li>
                                 <li><a class="dropdown-item" href="{{action('CandidatesController@index_rejected')}}">Rejected</a></li>
+                                <li><a class="dropdown-item" href="{{action('CandidatesController@index_ISUB')}}">ISUB</a></li>
+                                <li><a class="dropdown-item" href="{{action('CandidatesController@index_CSUB')}}">CSUB</a></li>
                                 </ul>
                             </div>
                             </div>
@@ -52,7 +54,7 @@
 
                         {{-- <div class="col-md-3 offset-md-3 "> --}}
                             <td>
-                            <div class="col-md-8">                                
+                            <div class="col-md-10">                                
                             <div class="dropdown">
                                 <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Interview
                                 <span class="caret"></span></button>
@@ -65,7 +67,7 @@
                             </td>
                         {{-- </div> --}}
 
-                            <td>
+                            {{-- <td>
                             <div class="col-md-8">
                             <div class="dropdown">
                                 <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Submission
@@ -76,7 +78,7 @@
                                 </ul>
                             </div>
                             </div>
-                            </td>
+                            </td> --}}
                         </tr>
                     </table>
 

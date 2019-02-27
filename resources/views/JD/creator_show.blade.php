@@ -1,4 +1,4 @@
-@extends('layouts.app_client')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -27,14 +27,14 @@
                                 <hr>
                                 <h5>Location: {{$job->location}}</h5>
                                 <hr>
-                                <small>{{$job->created_at}} by {{$job->client->name}}</small>
+                                <small>{{$job->created_at}} {{--by {{$job->client->name}}--}}</small>
 
                                 {{-- <div>
                                     {!!$post->body!!}
                                 </div>--}} 
                                 
                                 <hr>
-                                @if(!Auth::guest())
+                                {{-- @if(!Auth::guest())
                                     @if(Auth::user()->id == $job->client_id)
                                         <a href = "{{$job->id}}/edit" class = "btn btn-success">Edit</a>
 
@@ -43,9 +43,9 @@
                                         {{-- {!! Form::model($candidate, array('route' => array('candidates.destroy', $candidate->id), 'method' => 'DELETE')) !!}
                                             {{Form::hidden('method','DELETE')}}
                                             {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
-                                        {!!Form::close()!!} --}}
+                                        {!!Form::close()!!} 
                                     @endif
-                                @endif
+                                @endif --}}
                 </div>
             </div>
         </div>
