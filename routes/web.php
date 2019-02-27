@@ -123,6 +123,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             Route::post('register', 'Auth\RegisterController@register');
             Route::post('logout', 'Auth\LoginController@logout')->name('admin.logout');
 
+            Route::resource('jobsad', 'JobDescriptionController');
 
             Route::get('/searchpagead', 'CandidatesController@searchpage')->name('admin.searchpage');
 
