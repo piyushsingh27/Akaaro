@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Candidate;
+use App\Cities;
 use DB;
 
 class CandidatesController extends Controller
@@ -254,7 +255,7 @@ class CandidatesController extends Controller
      */
     public function create()
     {
-        //
+        return view('candidates.admin_create');
     }
 
     /**
@@ -265,7 +266,65 @@ class CandidatesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            // 'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'phone' => ['required', 'numeric'],
+            'DOB' => ['required', 'date'],
+            'gender' => ['required', 'string', 'regex:/^[a-zA-Z]+$/u', 'max:255'],
+            'current_location' => ['required'],
+            'preferred_location' => ['required'],
+            'school_10th' => ['required', 'string', 'regex:/^[a-zA-Z]+$/u', 'max:255'],
+            'marks_10th' => ['required', 'string'],
+            'school_12th' => ['required', 'string', 'regex:/^[a-zA-Z]+$/u', 'max:255'],
+            'marks_12th' => ['required', 'string'],
+            'university_UG' => ['required', 'string', 'max:255'],
+            'college_UG' => ['required', 'string', 'max:255'],
+            'aggregate_UG' => ['required', 'string'],
+            'university_PG' => ['nullable', 'string', 'max:255'],
+            'college_PG' => ['nullable', 'string', 'max:255'],
+            'aggregate_PG' => ['nullable', 'string'],
+            'skills' => ['string'],
+            'other_skills' => ['string'],
+            'experience' => ['string'],
+            'salary' => ['string'],
+            'cv_last_modified' => ['required', 'date'],
+            'status' => ['string'],
+            'interview_type' => ['string'],
+            'submission_type' => ['string'],
+        ]);
+
+        $candidate = new Candidate;
+        $candidate->name = $request->input('name');
+        $candidate->email = $request->input('email');
+        $candidate->phone = $request->input('phone');
+        $candidate->DOB = $request->input('DOB');
+        $candidate->gender = $request->input('gender');
+        $candidate->current_location = $request->input('current_location');
+        $candidate->preferred_location = $request->input('preferred_location');
+        $candidate->school_10th = $request->input('school_10th');
+        $candidate->marks_10th = $request->input('marks_10th');
+        $candidate->school_12th = $request->input('school_12th');
+        $candidate->marks_12th = $request->input('marks_12th');
+        $candidate->university_UG = $request->input('university_UG');
+        $candidate->college_UG = $request->input('college_UG');
+        $candidate->aggregate_UG = $request->input('aggregate_UG');
+        $candidate->university_PG = $request->input('university_PG');
+        $candidate->college_PG = $request->input('college_PG');
+        $candidate->aggregate_PG = $request->input('aggregate_PG');
+        $candidate->skills = $request->input('skills');
+        $candidate->other_skills = $request->input('other_skills');
+        $candidate->experience = $request->input('experience');
+        $candidate->salary = $request->input('salary');
+        $candidate->cv_last_modified = $request->input('cv_last_modified');
+        $candidate->status = $request->input('status');
+        $candidate->interview_type = $request->input('interview_type');
+        $candidate->submission_type = $request->input('submission_type');
+        // $candidate->user_id = auth()->user()->id;
+        $candidate->save();
+
+        return redirect('/admin/candidatesad')->with('success','Details Entered');
     }
 
     /**
@@ -288,7 +347,18 @@ class CandidatesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $candidate = Candidate::find($id);
+        $cities = Cities::/*pluck('cities')->*/all();
+
+        //Check for correct user
+        if(auth()->user()->id != $candidate->admin_id){
+            return redirect('candidates')->with('error' , 'Unauthorized page');
+        }
+        $data = array(
+            'candidate' => $candidate,
+            'cities' => $cities,
+        );
+        return view('candidates.admin_edit')->with('data',$data);
     }
 
     /**
@@ -300,7 +370,66 @@ class CandidatesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            // 'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'phone' => ['required', 'numeric'],
+            'DOB' => ['required', 'date'],
+            'gender' => ['required', 'string', 'regex:/^[a-zA-Z]+$/u', 'max:255'],
+            'current_location' => ['required', 'string'],
+            'preferred_location' => ['required', 'string'],
+            'school_10th' => ['required', 'string', 'regex:/^[a-zA-Z]+$/u', 'max:255'],
+            'marks_10th' => ['required', 'string'],
+            'school_12th' => ['required', 'string', 'regex:/^[a-zA-Z]+$/u', 'max:255'],
+            'marks_12th' => ['required', 'string'],
+            'university_UG' => ['required', 'string', 'max:255'],
+            'college_UG' => ['required', 'string', 'max:255'],
+            'aggregate_UG' => ['required', 'string'],
+            'university_PG' => ['nullable', 'string', 'max:255'],
+            'college_PG' => ['nullable', 'string', 'max:255'],
+            'aggregate_PG' => ['nullable', 'string'],
+            'skills' => ['string'],
+            'other_skills' => ['string'],
+            'experience' => ['string'],
+            'salary' => ['string'],
+            'cv_last_modified' => ['required', 'date'],
+            'status' => ['string'],
+            'interview_type' => ['string'],
+            'submission_type' => ['string'],
+        ]);
+
+
+        $candidate = Candidate::find($id);
+        $candidate->name = $request->input('name');
+        $candidate->email = $request->input('email');
+        $candidate->phone = $request->input('phone');
+        $candidate->DOB = $request->input('DOB');
+        $candidate->gender = $request->input('gender');
+        $candidate->current_location = $request->input('current_location');
+        $candidate->preferred_location = $request->input('preferred_location');
+        $candidate->school_10th = $request->input('school_10th');
+        $candidate->marks_10th = $request->input('marks_10th');
+        $candidate->school_12th = $request->input('school_12th');
+        $candidate->marks_12th = $request->input('marks_12th');
+        $candidate->university_UG = $request->input('university_UG');
+        $candidate->college_UG = $request->input('college_UG');
+        $candidate->aggregate_UG = $request->input('aggregate_UG');
+        $candidate->university_PG = $request->input('university_PG');
+        $candidate->college_PG = $request->input('college_PG');
+        $candidate->aggregate_PG = $request->input('aggregate_PG');
+        $candidate->skills = $request->input('skills');
+        $candidate->other_skills = $request->input('other_skills');
+        $candidate->experience = $request->input('experience');
+        $candidate->salary = $request->input('salary');
+        $candidate->cv_last_modified = $request->input('cv_last_modified');
+        $candidate->status = $request->input('status');
+        $candidate->interview_type = $request->input('interview_type');
+        $candidate->submission_type = $request->input('submission_type');
+        // $candidate->user_id = auth()->user()->id;
+        $candidate->save();
+
+        return redirect('/admin/candidatesad')->with('success','Details Updated');
     }
 
     /**

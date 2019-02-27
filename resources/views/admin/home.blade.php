@@ -24,6 +24,10 @@
 
                     <a href = "{{route('admin.searchpage')}}" class = "btn btn-primary">Search</a>
 
+                    <hr>
+
+                    <a href = "candidatesad/create" class = "btn btn-primary">New Candidate</a>
+
                     {{-- <a href = "{{route('client.searchpage')}}" class = "btn btn-primary">Search</a> --}}
 
                     {{-- <a href = "{{action('JobDescriptionController@create')}}" class = "btn btn-primary">New Job</a> --}}

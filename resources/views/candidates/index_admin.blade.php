@@ -19,7 +19,7 @@
                                             </div> --}}
                                             <div class = " col-md-8 col-sm-8">
                                                     <h3><a class="dropdown-item" href="candidatesad/{{$candidate->id}}">{{$candidate->name}}</a></h3>
-                                                    <small>{{$candidate->created_at}} by {{$candidate->user->name}}</small>
+                                                    <small>{{$candidate->created_at}} {{-- by {{$candidate->user->name}}--}}</small>
                                                     <hr>
                                                     {{-- <small>Written on {{$candidate->created_at}} by {{$candidate->user->name}}</small>                 --}}
                                             </div>

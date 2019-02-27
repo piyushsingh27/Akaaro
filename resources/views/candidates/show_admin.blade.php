@@ -63,15 +63,15 @@
                                 <hr> --}}
                                 {{-- <!--<img style="width:100%" src="storage/cover_images/{{$post->cover_image}}">--> --}}
                                 
-                                <small>{{$candidate->created_at}} by {{$candidate->user->name}}</small>
+                                <small>{{$candidate->created_at}}{{-- by {{$candidate->user->name}}--}}</small>
 
                                 {{-- <div>
                                     {!!$post->body!!}
                                 </div>--}} 
                                 
                                 <hr>
-                                {{-- @if(!Auth::guest())
-                                    @if(Auth::user()->id == $candidate->user_id)
+                                @if(!Auth::guest())
+                                    @if(Auth::user()->id == $candidate->admin_id)
                                         <a href = "{{$candidate->id}}/edit" class = "btn btn-success">Edit</a>
 
                                         <hr>
@@ -79,9 +79,9 @@
                                         {{-- {!! Form::model($candidate, array('route' => array('candidates.destroy', $candidate->id), 'method' => 'DELETE')) !!}
                                             {{Form::hidden('method','DELETE')}}
                                             {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
-                                        {!!Form::close()!!} 
+                                        {!!Form::close()!!} --}}
                                     @endif
-                                @endif --}}
+                                @endif
                 </div>
             </div>
         </div>

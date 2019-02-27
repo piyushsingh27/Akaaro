@@ -63,7 +63,7 @@
                                 <hr>
                                 {{-- <!--<img style="width:100%" src="storage/cover_images/{{$post->cover_image}}">--> --}}
                                 
-                                <small>{{$candidate->created_at}} by {{$candidate->user->name}}</small>
+                                <small>{{$candidate->created_at}} {{--by {{$candidate->user->name}}--}}</small>
 
                                 {{-- <div>
                                     {!!$post->body!!}

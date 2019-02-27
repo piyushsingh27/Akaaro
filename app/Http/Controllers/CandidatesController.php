@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Storage;
 use App\Candidate;
 use App\Cities;
 use DB;
+use Illuminate\Support\Facades\Input;
+// use Illuminate\Validation\Rules\In;
 
 class CandidatesController extends Controller
 {
@@ -223,20 +225,49 @@ class CandidatesController extends Controller
 
     public function search_skills(Request $request)
     {
-        $request->validate([
-            'query' => [ 'min:1'],
-        ]);
+        // dd(Input::has('excluding'));
 
-        $query = $request->input('query');
-        $query1 = $request->input('query1');
-        $query2 = $request->input('query2');
-        
-        $candidates = Candidate::where('skills', 'like', "%$query%")
-                                    ->orWhere('skills', 'like', "%$query1%")
-                                    ->orWhere('skills', 'like', "%$query2%")
-                                    ->paginate(10);
+        $excluding = Input::has('excluding') ? true : false;
 
-        return view('search_index')->with('candidates', $candidates);
+        // Candidate::update([
+        //     'excluding' => $excluding
+        // ]);
+
+        if ($excluding == true)
+        {
+            $request->validate([
+                'query' => [ 'min:1'],
+            ]); 
+
+            $query = $request->input('query');
+            $query1 = $request->input('query1');
+            $query2 = $request->input('query2');
+            
+            $candidates = Candidate::where('skills', 'like', "%$query")
+                                        ->orWhere('skills', 'like', "%$query1")
+                                        ->orWhere('skills', 'like', "%$query2")
+                                        ->paginate(10);
+
+            return view('search_index')->with('candidates', $candidates);
+        }
+
+        else
+        {
+            $request->validate([
+                'query' => [ 'min:1'],
+            ]);
+    
+            $query = $request->input('query');
+            $query1 = $request->input('query1');
+            $query2 = $request->input('query2');
+            
+            $candidates = Candidate::where('skills', 'like', "%$query%")
+                                        ->orWhere('skills', 'like', "%$query1%")
+                                        ->orWhere('skills', 'like', "%$query2%")
+                                        ->paginate(10);
+    
+            return view('search_index')->with('candidates', $candidates);
+        }
     }
 
     public function search_skills_and(Request $request)

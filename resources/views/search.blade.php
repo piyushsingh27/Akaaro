@@ -169,12 +169,35 @@
                                 <input type="text" name="query2" id="query2" value="{{request()->input('query2')}}" class="search-box" placeholder="Skill 3">
                                 <br>
                                 <br>
+
+                                {{-- <div class="form-group">
+                                        {{-- <label for="">Excluding</label> 
+                                        <input type="checkbox" class="" name="excluding" value="1"> Excluding
+                                </div> --}}
+
+                                <div class="form-group row">
+                                        <div class="col-md-5">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="excluding" value="0">
+            
+                                                <label class="form-check-label" for="">
+                                                    {{ __('Excluding') }}
+                                                </label>
+                                            </div>
+                                        </div>
+                                </div>
+
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6">
                                         <button type="submit" class="btn btn-primary">
                                             {{ __('Search Skill based Candidates') }}
                                         </button>
                                     </div>
+
+                                    {{-- <div class="form-group offset-md-10">
+                                        <label for="">Excluding</label>
+                                        <input type="checkbox" class="" name="excluding" value="1">
+                                    </div> --}}
                                 </div>
                             </form>
                         </div>
@@ -192,6 +215,19 @@
                                 <input type="text" name="query2" id="query2" value="{{request()->input('query2')}}" class="search-box" placeholder="Skill 3">
                                 <br>
                                 <br>
+
+                                <div class="form-group row">
+                                        <div class="col-md-5">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="" value="1">
+            
+                                                <label class="form-check-label" for="excluding">
+                                                    {{ __('Excluding') }}
+                                                </label>
+                                            </div>
+                                        </div>
+                                </div>
+
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6">
                                         <button type="submit" class="btn btn-primary">
@@ -215,6 +251,19 @@
                                 <input type="text" name="query2" id="query2" value="{{request()->input('query2')}}" class="search-box" placeholder="Skill 3">
                                 <br>
                                 <br>
+
+                                <div class="form-group row">
+                                        <div class="col-md-5">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="" value="1">
+            
+                                                <label class="form-check-label" for="excluding">
+                                                    {{ __('Excluding') }}
+                                                </label>
+                                            </div>
+                                        </div>
+                                </div>
+
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6">
                                         <button type="submit" class="btn btn-primary">
@@ -238,6 +287,18 @@
                                 <input type="text" name="query2" id="query2" value="{{request()->input('query2')}}" class="search-box" placeholder="Skill 3">
                                 <br>
                                 <br>
+                                <div class="form-group row">
+                                        <div class="col-md-5">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="" value="1">
+            
+                                                <label class="form-check-label" for="excluding">
+                                                    {{ __('Excluding') }}
+                                                </label>
+                                            </div>
+                                        </div>
+                                </div>
+                                
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6">
                                         <button type="submit" class="btn btn-primary">
