@@ -82,7 +82,7 @@
                     <div class="card-body">
                             {{-- <a href = "candidates/create" class = "btn btn-primary">Enter Details</a> --}}
                             <hr>
-                            <h3>Registered Users</h3>
+                            <h3>Registered Creators</h3>
                             @if(count($users) > 0)
                             <table class = "table table-striped">
                                 <tr>
@@ -114,7 +114,7 @@
                                 @endforeach
                             </table>
                             @else
-                                <p> You have no users!! </p>
+                                <p> You have no creators!! </p>
                             @endif 
         
         

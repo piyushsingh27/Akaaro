@@ -189,6 +189,7 @@
 
 
                         <div class="col-md-10 offset-md-1">
+                            <h4> Any of the key skills required</h4>
                             <form action="{{route('search_skills')}}" method="GET">
                                 @csrf
                                     <span class="glyphicon glyphicon-search"></span>
@@ -222,7 +223,7 @@
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6">
                                         <button type="submit" class="btn btn-primary">
-                                            {{ __('Search Skill based Candidates') }}
+                                            {{ __('Search') }}
                                         </button>
                                     </div>
 
@@ -233,8 +234,10 @@
                                 </div>
                             </form>
                         </div>
+                        <hr>
 
                         <div class="col-md-10 offset-md-1">
+                            <h4> All of the key skills required</h4>
                             <form action="{{route('search_skills&')}}" method="GET">
                                 @csrf
                                     <span class="glyphicon glyphicon-search"></span>
@@ -251,9 +254,9 @@
                                 <div class="form-group row">
                                         <div class="col-md-5">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="" value="1">
+                                                <input class="form-check-input" type="checkbox" name="excluding" value="0">
             
-                                                <label class="form-check-label" for="excluding">
+                                                <label class="form-check-label" for="">
                                                     {{ __('Excluding') }}
                                                 </label>
                                             </div>
@@ -263,14 +266,16 @@
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6">
                                         <button type="submit" class="btn btn-primary">
-                                            {{ __('Search Skill based Candidates') }}
+                                            {{ __('Search') }}
                                         </button>
                                     </div>
                                 </div>
                             </form>
                         </div>
+                        <hr>
 
                         <div class="col-md-10 offset-md-1">
+                            <h4> Any of the skills required </h4>
                             <form action="{{route('search_resume')}}" method="GET">
                                 @csrf
                                     <span class="glyphicon glyphicon-search"></span>
@@ -287,9 +292,9 @@
                                 <div class="form-group row">
                                         <div class="col-md-5">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="" value="1">
+                                                <input class="form-check-input" type="checkbox" name="excluding" value="0">
             
-                                                <label class="form-check-label" for="excluding">
+                                                <label class="form-check-label" for="">
                                                     {{ __('Excluding') }}
                                                 </label>
                                             </div>
@@ -299,14 +304,16 @@
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6">
                                         <button type="submit" class="btn btn-primary">
-                                            {{ __('Search resume based Candidates') }}
+                                            {{ __('Search') }}
                                         </button>
                                     </div>
                                 </div>
                             </form>
                         </div>
+                        <h4>
 
                         <div class="col-md-10 offset-md-1">
+                            <h4> All of the skills required</h4>
                             <form action="{{route('search_resume&')}}" method="GET">
                                 @csrf
                                     <span class="glyphicon glyphicon-search"></span>
@@ -322,9 +329,9 @@
                                 <div class="form-group row">
                                         <div class="col-md-5">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="" value="1">
+                                                <input class="form-check-input" type="checkbox" name="excluding" value="0">
             
-                                                <label class="form-check-label" for="excluding">
+                                                <label class="form-check-label" for="">
                                                     {{ __('Excluding') }}
                                                 </label>
                                             </div>
@@ -334,7 +341,7 @@
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6">
                                         <button type="submit" class="btn btn-primary">
-                                            {{ __('Search resume based Candidates') }}
+                                            {{ __('Search') }}
                                         </button>
                                     </div>
                                 </div>

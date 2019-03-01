@@ -189,6 +189,7 @@
                         </form> --}}
 
                         <div class="col-md-10 offset-md-1">
+                            <h4> Any of the key skills required </h4>
                             <form action="{{route('client.search_skills')}}" method="GET">
                                 @csrf
                                     <span class="glyphicon glyphicon-search"></span>
@@ -201,17 +202,32 @@
                                 <input type="text" name="query2" id="query2" value="{{request()->input('query2')}}" class="search-box" placeholder="Skill 3">
                                 <br>
                                 <br>
+
+                                <div class="form-group row">
+                                        <div class="col-md-5">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="excluding" value="0">
+            
+                                                <label class="form-check-label" for="">
+                                                    {{ __('Excluding') }}
+                                                </label>
+                                            </div>
+                                        </div>
+                                </div>
+
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6">
                                         <button type="submit" class="btn btn-primary">
-                                            {{ __('Search Skill based Candidates') }}
+                                            {{ __('Search') }}
                                         </button>
                                     </div>
                                 </div>
                             </form>
                         </div>
+                        <hr>
 
                         <div class="col-md-10 offset-md-1">
+                            <h4> All of the key skills required </h4>
                             <form action="{{route('client.search_skills&')}}" method="GET">
                                 @csrf
                                     <span class="glyphicon glyphicon-search"></span>
@@ -224,17 +240,32 @@
                                 <input type="text" name="query2" id="query2" value="{{request()->input('query2')}}" class="search-box" placeholder="Skill 3">
                                 <br>
                                 <br>
+
+                                <div class="form-group row">
+                                        <div class="col-md-5">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="excluding" value="0">
+            
+                                                <label class="form-check-label" for="">
+                                                    {{ __('Excluding') }}
+                                                </label>
+                                            </div>
+                                        </div>
+                                </div>
+
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6">
                                         <button type="submit" class="btn btn-primary">
-                                            {{ __('Search Skill based Candidates') }}
+                                            {{ __('Search') }}
                                         </button>
                                     </div>
                                 </div>
                             </form>
                         </div>
+                        <hr>
 
                         <div class="col-md-10 offset-md-1">
+                            <h4> Any of the skills required</h4>
                             <form action="{{route('client.search_resume')}}" method="GET">
                                 @csrf
                                     <span class="glyphicon glyphicon-search"></span>
@@ -247,17 +278,33 @@
                                 <input type="text" name="query2" id="query2" value="{{request()->input('query2')}}" class="search-box" placeholder="Skill 3">
                                 <br>
                                 <br>
+
+                                <div class="form-group row">
+                                        <div class="col-md-5">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="excluding" value="0">
+            
+                                                <label class="form-check-label" for="">
+                                                    {{ __('Excluding') }}
+                                                </label>
+                                            </div>
+                                        </div>
+                                </div>
+
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6">
                                         <button type="submit" class="btn btn-primary">
-                                            {{ __('Search resume based Candidates') }}
+                                            {{ __('Search') }}
                                         </button>
                                     </div>
                                 </div>
                             </form>
                         </div>
 
+                        <hr>
+
                         <div class="col-md-10 offset-md-1">
+                            <h4> All of the skills required</h4>
                             <form action="{{route('client.search_resume&')}}" method="GET">
                                 @csrf
                                     <span class="glyphicon glyphicon-search"></span>
@@ -270,10 +317,22 @@
                                 <input type="text" name="query2" id="query2" value="{{request()->input('query2')}}" class="search-box" placeholder="Skill 3">
                                 <br>
                                 <br>
+                                <div class="form-group row">
+                                        <div class="col-md-5">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="excluding" value="0">
+            
+                                                <label class="form-check-label" for="">
+                                                    {{ __('Excluding') }}
+                                                </label>
+                                            </div>
+                                        </div>
+                                </div>
+
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6">
                                         <button type="submit" class="btn btn-primary">
-                                            {{ __('Search resume based Candidates') }}
+                                            {{ __('Search') }}
                                         </button>
                                     </div>
                                 </div>
