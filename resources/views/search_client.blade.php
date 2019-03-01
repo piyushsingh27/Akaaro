@@ -47,14 +47,48 @@
 
                         <form action="{{route('client.search_location')}}" method="GET" class="search-form">
                                 <span class="glyphicon glyphicon-search"></span>
-                            <input type="text" name="query" id="query" value="{{request()->input('query')}}" class="search-box" placeholder="Preferred Location">
+                            {{-- <input type="text" name="query" id="query" value="{{request()->input('query')}}" class="search-box" placeholder="Preferred Location"> --}}
+                            <select type="text" name="query" id="query" {{--value="{{request()->input('query')}}"--}} class="search-box" placeholder="Preferred Location">
+                                    <option value="" style="color:darkgray;">Preferred Location</option>
+                                    @foreach ($candidates as $candidate)
+                                        <option value="{{$candidate->preferred_location}}">{{$candidate->preferred_location}}</option>
+                                        {{-- <option value="{{$candidate->salary}}">1 Lakhs - 3 Lakhs</option> --}}
+                                        {{-- <option value="{{$candidate->salary}}">3 Lakhs - 6 Lakhs</option> --}}
+                                    @endforeach
+                                </select>
+                                <br>
+                                <br>
+                                    <div class="form-group row mb-0">
+                                        <div class="col-md-6 ">
+                                            <button type="submit" class="btn btn-primary">
+                                                {{ __('Search') }}
+                                            </button>
+                                        </div>
+                                    </div>
                         </form>
 
                         <hr>
 
                         <form action="{{route('client.search_current_location')}}" method="GET" class="search-form">
                                 <span class="glyphicon glyphicon-search"></span>
-                            <input type="text" name="query" id="query" value="{{request()->input('query')}}" class="search-box" placeholder="Current Location">
+                            {{-- <input type="text" name="query" id="query" value="{{request()->input('query')}}" class="search-box" placeholder="Current Location"> --}}
+                            <select type="text" name="query" id="query" {{--value="{{request()->input('query')}}"--}} class="search-box" placeholder="Current Location">
+                                    <option value="" style="color:darkgray;">Current Location</option>
+                                        @foreach ($candidates as $candidate)
+                                            <option value="{{$candidate->current_location}}">{{$candidate->current_location}}</option>
+                                            {{-- <option value="{{$candidate->salary}}">1 Lakhs - 3 Lakhs</option> --}}
+                                            {{-- <option value="{{$candidate->salary}}">3 Lakhs - 6 Lakhs</option> --}}
+                                        @endforeach
+                                    </select>
+                                    <br>
+                                    <br>
+                                        <div class="form-group row mb-0">
+                                            <div class="col-md-6 ">
+                                                <button type="submit" class="btn btn-primary">
+                                                    {{ __('Search') }}
+                                                </button>
+                                            </div>
+                                        </div>
                         </form>
 
                         <hr>
