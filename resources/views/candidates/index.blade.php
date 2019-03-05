@@ -20,6 +20,17 @@
                                             <div class = " col-md-8 col-sm-8">
                                                     <h3><a class="dropdown-item" href="candidates/{{$candidate->id}}">{{$candidate->name}}</a></h3>
                                                     <small>{{$candidate->created_at}} {{--by {{$candidate->user->name}}--}}</small>
+                                                    {{-- <div class="col-md-5 offset-md-8">
+                                                        <div class="form-check pull-right">
+                                                            <input class="form-check-input" type="checkbox" name="selection" value="0">
+                        
+                                                            <label class="form-check-label" for="">
+                                                                {{ __('Select') }}
+                                                            </label>
+                                                        </div>
+                                                    </div> --}}
+                                                    <a class="btn btn-default offset-md-9" href="{{action('CandidatesController@send', ['id' => $candidate->id])}}" role="button">Send Mail</a>
+                                                    <br>
                                                     <hr>
                                                     {{-- <small>Written on {{$candidate->created_at}} by {{$candidate->user->name}}</small>                 --}}
                                             </div>
@@ -32,6 +43,8 @@
                             @else
                                 <p>No candidates found</p>
                             @endif 
+
+                            
                 </div>
             </div>
         </div>

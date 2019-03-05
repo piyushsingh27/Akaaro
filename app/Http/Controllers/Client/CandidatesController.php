@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Candidate;
 use DB;
 use Illuminate\Support\Facades\Input;
+use Mail;
 
 class CandidatesController extends Controller
 {
@@ -20,6 +21,21 @@ class CandidatesController extends Controller
     {
         $this->middleware('auth:client');
     }
+
+    public function send($id)
+    {
+                $candidate = Candidate::find($id)->toArray();
+
+                Mail::send('mail.sendmail', $candidate, function($message) use ($candidate){
+                $message->to($candidate['email'])->subject('Test Email');
+                $message->from('pyushsingh27@gmail.com', 'Piyush');
+                });
+
+                return redirect()->to('/client/candidatescl')->with('Success', "Email Sent");
+
+        
+    }
+
     /**
      * Display a listing of the resource.
      *

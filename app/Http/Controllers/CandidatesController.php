@@ -8,6 +8,7 @@ use App\Candidate;
 use App\Cities;
 use DB;
 use Illuminate\Support\Facades\Input;
+use Mail;   
 // use Illuminate\Validation\Rules\In;
 
 class CandidatesController extends Controller
@@ -27,6 +28,21 @@ class CandidatesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function send($id)
+    {
+                $candidate = Candidate::find($id)->toArray();
+
+                Mail::send('mail.sendmail', $candidate, function($message) use ($candidate){
+                $message->to($candidate['email'])->subject('Test Email');
+                $message->from('pyushsingh27@gmail.com', 'Piyush');
+                });
+
+                return redirect()->to('candidates')->with('Success', "Email Sent");
+
+        
+    }
+
     public function index()
     {
         $candidates = Candidate::orderBy('created_at','desc')->paginate(10);

@@ -8,6 +8,7 @@ use App\Candidate;
 use App\Cities;
 use DB;
 use Illuminate\Support\Facades\Input;
+use Mail;
 
 class CandidatesController extends Controller
 {
@@ -21,6 +22,21 @@ class CandidatesController extends Controller
     {
         $this->middleware('auth:admin');
     }
+
+    public function send($id)
+    {
+                $candidate = Candidate::find($id)->toArray();
+
+                Mail::send('mail.sendmail', $candidate, function($message) use ($candidate){
+                $message->to($candidate['email'])->subject('Test Email');
+                $message->from('pyushsingh27@gmail.com', 'Piyush');
+                });
+
+                return redirect()->to('/admin/candidatesad')->with('Success', "Email Sent");
+
+        
+    }
+
     /**
      * Display a listing of the resource.
      *
