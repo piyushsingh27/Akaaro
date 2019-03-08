@@ -42,4 +42,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Admin');
     }
+
+    public function emails()
+    {
+        return $this->hasMany('App\Email');
+    }
 }

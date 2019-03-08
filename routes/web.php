@@ -150,5 +150,6 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
 
 Route::resource('/jobs', 'JobDescriptionController');
 
-Route::get('send/{id}', 'CandidatesController@send');
+Route::post('send/{id}', 'CandidatesController@send')->name('sendmail');
+Route::get('{id}/mail', 'CandidatesController@emailbody');
 // Route::get('/jobss', 'JobDescriptionController@indextest');

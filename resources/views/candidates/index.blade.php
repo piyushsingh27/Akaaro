@@ -29,7 +29,7 @@
                                                             </label>
                                                         </div>
                                                     </div> --}}
-                                                    <a class="btn btn-default offset-md-9" href="{{action('CandidatesController@send', ['id' => $candidate->id])}}" role="button">Send Mail</a>
+                                                    <a class="btn btn-default offset-md-9" href="{{$candidate->id}}/mail">Send Mail</a>
                                                     <br>
                                                     <hr>
                                                     {{-- <small>Written on {{$candidate->created_at}} by {{$candidate->user->name}}</small>                 --}}

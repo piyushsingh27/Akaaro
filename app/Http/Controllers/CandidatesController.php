@@ -8,7 +8,8 @@ use App\Candidate;
 use App\Cities;
 use DB;
 use Illuminate\Support\Facades\Input;
-use Mail;   
+use Mail;
+use App\Email;   
 // use Illuminate\Validation\Rules\In;
 
 class CandidatesController extends Controller
@@ -29,18 +30,49 @@ class CandidatesController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function send($id)
+    
+    public function emailbody($id)
     {
-                $candidate = Candidate::find($id)->toArray();
+        $candidate = Candidate::find($id);
 
-                Mail::send('mail.sendmail', $candidate, function($message) use ($candidate){
-                $message->to($candidate['email'])->subject('Test Email');
-                $message->from('pyushsingh27@gmail.com', 'Piyush');
-                });
+        return view('mail.mailbody')->with('candidate', $candidate);
+    }
 
-                return redirect()->to('candidates')->with('Success', "Email Sent");
-
+    public function send($id, Request $request)
+    {
         
+        $email = new Email;
+        $email->email = $request->input('email');
+        $email->message = $request->input('message');
+        $email->user_id = auth()->user()->id;
+        $email->candidate_id = $id;
+        $email->save();
+
+        // return view('mail.sendmail')->with('email', $email);
+
+        $candidatee = Candidate::find($id);
+        $candidatee->message = $request->input('message');
+        $candidatee->save();
+        
+        
+
+        $candidate = Candidate::find($id)->toArray();
+        // $emaill = Email::where('candidate_id', $id)->first();
+        // $emailll = Email::find($emaill)->toArray();
+        // $emaill = Email::find()
+
+        // $candidate = array('text' => $email->message);
+
+        $data = array('candidate' => $candidate,
+                        'email' => $email);
+
+        Mail::send([], $candidate, function($message) use ($candidate){
+        $message->to($candidate['email'])->subject('Akaaro - Info Mail');
+        $message->setBody($candidate['message']);
+        $message->from('pyushsingh27@gmail.com', 'Piyush');
+        });
+
+        return redirect()->to('candidates')->with('Success', "Email Sent");
     }
 
     public function index()

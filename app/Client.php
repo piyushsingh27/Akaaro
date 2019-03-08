@@ -45,6 +45,11 @@ class Client extends Authenticatable
         return $this->hasMany('App\JobDescription');
     }
 
+    public function emails()
+    {
+        return $this->hasMany('App\Email');
+    }
+
 
     // public function remarks()
     // {
