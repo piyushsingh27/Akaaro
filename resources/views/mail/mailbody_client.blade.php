@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app_client')
 
 @section('content')
 <div class="container">
@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Send Mail') }}</div>
 
                 <div class="card-body">
-                    {!! Form::open(['url' => route('sendmail', ['id' => $candidate->id]), 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+                    {!! Form::open(['url' => route('client.sendmail', ['id' => $candidate->id]), 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
 
                     {{-- {!! Form::model($candidate, ['route' => ['sendmail', $candidate->id],'method' => 'PUT']) !!} --}}
                     <div class = "form-group">

@@ -81,7 +81,10 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             
 
             Route::resource('/candidatescl', 'CandidatesController');
-            Route::get('send/{id}', 'CandidatesController@send');
+            // Route::get('send/{id}', 'CandidatesController@send');
+
+            Route::post('sendcl/{id}', 'CandidatesController@send')->name('client.sendmail');
+            Route::get('{id}/mailcl', 'CandidatesController@emailbody');
 
             Route::get('/searchpagecl', 'CandidatesController@searchpage')->name('client.searchpage');
 
@@ -118,7 +121,10 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             Route::get('/deactivate_client/{idd}', 'HomeController@flagdowngrade_client');
 
             Route::resource('/candidatesad', 'CandidatesController');
-            Route::get('send/{id}', 'CandidatesController@send');
+            // Route::get('send/{id}', 'CandidatesController@send');
+
+            Route::post('sendad/{id}', 'CandidatesController@send')->name('admin.sendmail');
+            Route::get('{id}/mailad', 'CandidatesController@emailbody');
 
             //Authentication Routes
             Route::get('login', 'Auth\LoginController@showLoginForm')->name('admin.login');

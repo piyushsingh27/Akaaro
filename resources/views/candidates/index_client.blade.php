@@ -20,7 +20,8 @@
                                             <div class = " col-md-8 col-sm-8">
                                                     <h3><a class="dropdown-item" href="candidatescl/{{$candidate->id}}">{{$candidate->name}}</a></h3>
                                                     <small>{{$candidate->created_at}} {{--by {{$candidate->user->name}}--}}</small>
-                                                    <a class="btn btn-default offset-md-9" href="{{action('Client\CandidatesController@send', ['id' => $candidate->id])}}" role="button">Send Mail</a>
+                                                    {{-- <a class="btn btn-default offset-md-9" href="{{action('Client\CandidatesController@send', ['id' => $candidate->id])}}" role="button">Send Mail</a> --}}
+                                                    <a class="btn btn-default offset-md-9" href="{{$candidate->id}}/mailcl">Send Mail</a>
                                                     <br>
                                                     <hr>
                                                     {{-- <small>Written on {{$candidate->created_at}} by {{$candidate->user->name}}</small>                 --}}

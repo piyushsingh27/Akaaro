@@ -69,7 +69,7 @@ class CandidatesController extends Controller
         Mail::send([], $candidate, function($message) use ($candidate){
         $message->to($candidate['email'])->subject('Akaaro - Info Mail');
         $message->setBody($candidate['message']);
-        $message->from('pyushsingh27@gmail.com', 'Piyush');
+        $message->from('akaaro.hirings@gmail.com', 'Akaaro');
         });
 
         return redirect()->to('candidates')->with('Success', "Email Sent");

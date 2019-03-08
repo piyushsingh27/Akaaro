@@ -8,6 +8,7 @@ use App\Candidate;
 use DB;
 use Illuminate\Support\Facades\Input;
 use Mail;
+use App\Email;
 
 class CandidatesController extends Controller
 {
@@ -22,19 +23,61 @@ class CandidatesController extends Controller
         $this->middleware('auth:client');
     }
 
-    public function send($id)
+    public function emailbody($id)
     {
-                $candidate = Candidate::find($id)->toArray();
+        $candidate = Candidate::find($id);
 
-                Mail::send('mail.sendmail', $candidate, function($message) use ($candidate){
-                $message->to($candidate['email'])->subject('Test Email');
-                $message->from('pyushsingh27@gmail.com', 'Piyush');
-                });
-
-                return redirect()->to('/client/candidatescl')->with('Success', "Email Sent");
-
-        
+        return view('mail.mailbody_client')->with('candidate', $candidate);
     }
+
+    public function send($id, Request $request)
+    {
+        
+        $email = new Email;
+        $email->email = $request->input('email');
+        $email->message = $request->input('message');
+        $email->client_id = auth()->user()->id;
+        $email->candidate_id = $id;
+        $email->save();
+
+        // return view('mail.sendmail')->with('email', $email);
+
+        $candidatee = Candidate::find($id);
+        $candidatee->message = $request->input('message');
+        $candidatee->save();
+        
+        
+
+        $candidate = Candidate::find($id)->toArray();
+        // $emaill = Email::where('candidate_id', $id)->first();
+        // $emailll = Email::find($emaill)->toArray();
+        // $emaill = Email::find()
+
+        // $candidate = array('text' => $email->message);
+
+        $data = array('candidate' => $candidate,
+                        'email' => $email);
+
+        Mail::send([], $candidate, function($message) use ($candidate){
+        $message->to($candidate['email'])->subject('Akaaro - Info Mail');
+        $message->setBody($candidate['message']);
+        $message->from('akaaro.hirings@gmail.com', 'Akaaro');
+        });
+
+        return redirect()->to('/client/candidatescl')->with('Success', "Email Sent");
+    }
+
+    // public function send($id)
+    // {
+    //             $candidate = Candidate::find($id)->toArray();
+
+    //             Mail::send('mail.sendmail', $candidate, function($message) use ($candidate){
+    //             $message->to($candidate['email'])->subject('Test Email');
+    //             $message->from('pyushsingh27@gmail.com', 'Piyush');
+    //             });
+
+    //             return redirect()->to('/client/candidatescl')->with('Success', "Email Sent");
+    // }
 
     /**
      * Display a listing of the resource.
