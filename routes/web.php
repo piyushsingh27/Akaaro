@@ -53,8 +53,10 @@ Route::get('/searchsalary', 'CandidatesController@search_salary')->name('search_
 Route::get('/searchexperience', 'CandidatesController@search_experience')->name('search_experience');
 Route::get('/searchstatus', 'CandidatesController@search_status')->name('search_status');
 Route::get('/searchskills', 'CandidatesController@search_skills')->name('search_skills');
+Route::get('/searchskill', 'CandidatesController@search_skill')->name('search_skill');
 Route::get('/searchskills&', 'CandidatesController@search_skills_and')->name('search_skills&');
 Route::get('/searchresume', 'CandidatesController@search_resume')->name('search_resume');
+Route::get('/searchres', 'CandidatesController@search_res')->name('search_res');
 Route::get('/searchresume&', 'CandidatesController@search_resume_and')->name('search_resume&');
 Route::get('/searchinterview-type', 'CandidatesController@search_interviewtype')->name('search_interviewtype');
 Route::get('/searchsubmission-type', 'CandidatesController@search_submissiontype')->name('search_submissiontype');
@@ -98,8 +100,10 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             Route::get('/searchexperiencecl', 'CandidatesController@search_experience')->name('client.search_experience');
             Route::get('/searchstatuscl', 'CandidatesController@search_status')->name('client.search_status');
             Route::get('/searchskillscl', 'CandidatesController@search_skills')->name('client.search_skills');
+            Route::get('/searchskillcl', 'CandidatesController@search_skill')->name('client.search_skill');
             Route::get('/searchskillscl&', 'CandidatesController@search_skills_and')->name('client.search_skills&');
             Route::get('/searchresumecl', 'CandidatesController@search_resume')->name('client.search_resume');
+            Route::get('/searchrescl', 'CandidatesController@search_res')->name('client.search_res');
             Route::get('/searchresumecl&', 'CandidatesController@search_resume_and')->name('client.search_resume&');
         });
     });
@@ -147,8 +151,10 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             Route::get('/searchexperiencead', 'CandidatesController@search_experience')->name('admin.search_experience');
             Route::get('/searchstatusad', 'CandidatesController@search_status')->name('admin.search_status');
             Route::get('/searchskillsad', 'CandidatesController@search_skills')->name('admin.search_skills');
+            Route::get('/searchskillad', 'CandidatesController@search_skill')->name('admin.search_skill');
             Route::get('/searchskillsad&', 'CandidatesController@search_skills_and')->name('admin.search_skills&');
             Route::get('/searchresumead', 'CandidatesController@search_resume')->name('admin.search_resume');
+            Route::get('/searchresad', 'CandidatesController@search_res')->name('admin.search_res');
             Route::get('/searchresumead&', 'CandidatesController@search_resume_and')->name('admin.search_resume&');
         });
     });

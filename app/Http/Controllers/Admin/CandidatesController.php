@@ -228,6 +228,21 @@ class CandidatesController extends Controller
     //     return view('search-client_index')->with('candidates', $candidates);
     // }
 
+    public function search_skill(Request $request)
+    {
+        $request->validate([
+            'query' => [ 'min:1'],
+        ]);
+
+        $query = $request->input('query');
+
+        $candidates = Candidate::where('skills', 'like', "%$query%")->paginate(10);
+
+        // $candidates = Candidate::search($query)->paginate(5);
+
+        return view('search-admin_index')->with('candidates', $candidates);
+    }
+
     public function search_skills(Request $request)
     {
         // dd(Input::has('excluding'));
@@ -244,6 +259,8 @@ class CandidatesController extends Controller
             {
                 $request->validate([
                     'query' => [ 'min:1'],
+                    'query1' => ['min:1'],
+                    'query2' => ['min:1'],
                 ]); 
 
                 $query = $request->input('query');
@@ -262,6 +279,8 @@ class CandidatesController extends Controller
             {
                 $request->validate([
                     'query' => [ 'min:1'],
+                    'query1' => ['min:1'],
+                    'query2' => ['min:1'],
                 ]);
         
                 $query = $request->input('query');
@@ -327,6 +346,21 @@ class CandidatesController extends Controller
         }
     }
 
+    public function search_res(Request $request)
+    {
+        $request->validate([
+            'query' => [ 'min:1'],
+        ]);
+
+        $query = $request->input('query');
+
+        $candidates = Candidate::where('other_skills', 'like', "%$query%")->paginate(10);
+
+        // $candidates = Candidate::search($query)->paginate(5);
+
+        return view('search-admin_index')->with('candidates', $candidates);
+    }
+
     public function search_resume(Request $request)
     {
         $excluding = Input::has('excluding') ? true : false;
@@ -341,6 +375,8 @@ class CandidatesController extends Controller
             {
                 $request->validate([
                     'query' => [ 'min:1'],
+                    'query1' => ['min:1'],
+                    'query2' => ['min:1'],
                 ]);
         
                 $query = $request->input('query');
@@ -359,6 +395,8 @@ class CandidatesController extends Controller
             {
                 $request->validate([
                     'query' => [ 'min:1'],
+                    'query1' => ['min:1'],
+                    'query2' => ['min:1'],
                 ]);
         
                 $query = $request->input('query');
