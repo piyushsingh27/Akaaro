@@ -105,16 +105,28 @@
                         </form> --}}
 
                         <div class="col-md-10 offset-md-1">
+                                <h4> Aggregate_12th</h4>
                                 <form action="{{route('admin.search_marks12th')}}" method="GET">
                                         <span class="glyphicon glyphicon-search"></span>
-                                    <select type="text" name="query" id="query" {{--value="{{request()->input('query')}}"--}} class="search-box" placeholder="Salary">
-                                    <option value="" style="color:darkgray;">Aggregate 12th</option>
-                                    @foreach ($candidates->unique('marks_12th') as $candidate)
-                                        <option value="{{$candidate->marks_12th}}">{{$candidate->marks_12th}}</option>
-                                        {{-- <option value="{{$candidate->salary}}">1 Lakhs - 3 Lakhs</option> --}}
-                                        {{-- <option value="{{$candidate->salary}}">3 Lakhs - 6 Lakhs</option> --}}
-                                    @endforeach
-                                    </select>
+                                    
+                                        <select type="text" name="query1" id="query1" {{--value="{{request()->input('query1')}}"--}} class="search-box" placeholder="From">
+                                                <option value="" style="color:darkgray;">From</option>
+                                                @foreach ($candidates->unique('marks_12th') as $candidate)
+                                                    <option value="{{$candidate->marks_12th}}">{{$candidate->marks_12th}}</option>
+                                                    {{-- <option value="{{$candidate->salary}}">1 Lakhs - 3 Lakhs</option> --}}
+                                                    {{-- <option value="{{$candidate->salary}}">3 Lakhs - 6 Lakhs</option>--}} 
+                                                @endforeach
+                                        </select>
+                                        <br>
+                                        <br>
+                                        <select type="text" name="query2" id="query2" {{--value="{{request()->input('query2')}}"--}} class="search-box" placeholder="To">
+                                                <option value="" style="color:darkgray;">To</option> 
+                                                @foreach ($candidates->unique('marks_12th') as $candidate)
+                                                    <option value="{{$candidate->marks_12th}}">{{$candidate->marks_12th}}</option>
+                                            {{-- <option value="{{$candidate->salary}}">1 Lakhs - 3 Lakhs</option> --}}
+                                            {{-- <option value="{{$candidate->salary}}">3 Lakhs - 6 Lakhs</option> --}}
+                                            @endforeach
+                                        </select>
                                     <br>
                                     <br>
                                         <div class="form-group row mb-0">
@@ -135,16 +147,29 @@
                         </form> --}}
 
                         <div class="col-md-10 offset-md-1">
+                                <h4> Aggregate_UG</h4>
                             <form action="{{route('admin.search_aggregateUG')}}" method="GET">
                                     <span class="glyphicon glyphicon-search"></span>
-                                <select type="text" name="query" id="query" {{--value="{{request()->input('query')}}"--}} class="search-box" placeholder="Salary">
-                                <option value="" style="color:darkgray;">Aggregate_UG</option>
-                                @foreach ($candidates->unique('aggregate_UG') as $candidate)
-                                    <option value="{{$candidate->aggregate_UG}}">{{$candidate->aggregate_UG}}</option>
+
+                                    <select type="text" name="query1" id="query1" {{--value="{{request()->input('query1')}}"--}} class="search-box" placeholder="From">
+                                            <option value="" style="color:darkgray;">From</option>
+                                            @foreach ($candidates->unique('aggregate_UG') as $candidate)
+                                                <option value="{{$candidate->aggregate_UG}}">{{$candidate->aggregate_UG}}</option>
+                                                {{-- <option value="{{$candidate->salary}}">1 Lakhs - 3 Lakhs</option> --}}
+                                                {{-- <option value="{{$candidate->salary}}">3 Lakhs - 6 Lakhs</option>--}} 
+                                            @endforeach
+                                            </select>
+                                    <br>
+                                    <br>
+                                    <select type="text" name="query2" id="query2" {{--value="{{request()->input('query2')}}"--}} class="search-box" placeholder="To">
+                                {{-- <select type="text" name="query" id="query" {{--value="{{request()->input('query')}}" class="search-box" placeholder="Salary">--}}
+                                            <option value="" style="color:darkgray;">To</option>
+                                             @foreach ($candidates->unique('aggregate_UG') as $candidate)
+                                                <option value="{{$candidate->aggregate_UG}}">{{$candidate->aggregate_UG}}</option>
                                     {{-- <option value="{{$candidate->salary}}">1 Lakhs - 3 Lakhs</option> --}}
                                     {{-- <option value="{{$candidate->salary}}">3 Lakhs - 6 Lakhs</option> --}}
-                                @endforeach
-                                </select>
+                                            @endforeach
+                                    </select>
                                 <br>
                                 <br>
                                     <div class="form-group row mb-0">
@@ -165,12 +190,25 @@
                         </form> --}}
 
                         <div class="col-md-10 offset-md-1">
+                                <h4> Aggregate_PG</h4>
                                 <form action="{{route('admin.search_aggregatePG')}}" method="GET">
                                         <span class="glyphicon glyphicon-search"></span>
-                                    <select type="text" name="query" id="query" {{--value="{{request()->input('query')}}"--}} class="search-box" placeholder="Salary">
-                                    <option value="" style="color:darkgray;">Aggregate_PG</option>
-                                    @foreach ($candidates->unique('aggregate_PG') as $candidate)
-                                        <option value="{{$candidate->aggregate_PG}}">{{$candidate->aggregate_PG}}</option>
+
+                                        <select type="text" name="query1" id="query1" {{--value="{{request()->input('query1')}}"--}} class="search-box" placeholder="From">
+                                                <option value="" style="color:darkgray;">From</option>
+                                                @foreach ($candidates->unique('aggregate_PG') as $candidate)
+                                                    <option value="{{$candidate->aggregate_PG}}">{{$candidate->aggregate_PG}}</option>
+                                                    {{-- <option value="{{$candidate->salary}}">1 Lakhs - 3 Lakhs</option> --}}
+                                                    {{-- <option value="{{$candidate->salary}}">3 Lakhs - 6 Lakhs</option>--}} 
+                                                @endforeach
+                                        </select>
+                                        <br>
+                                        <br>
+                                        <select type="text" name="query2" id="query2" {{--value="{{request()->input('query2')}}"--}} class="search-box" placeholder="To">
+                                    {{-- <select type="text" name="query" id="query" {{--value="{{request()->input('query')}}" class="search-box" placeholder="Salary">--}}
+                                                <option value="" style="color:darkgray;">To</option>
+                                                @foreach ($candidates->unique('aggregate_PG') as $candidate)
+                                                    <option value="{{$candidate->aggregate_PG}}">{{$candidate->aggregate_PG}}</option>
                                         {{-- <option value="{{$candidate->salary}}">1 Lakhs - 3 Lakhs</option> --}}
                                         {{-- <option value="{{$candidate->salary}}">3 Lakhs - 6 Lakhs</option> --}}
                                     @endforeach
@@ -361,14 +399,26 @@
                         <div class="col-md-10 offset-md-1">
                             <form action="{{route('admin.search_salary')}}" method="GET">
                                     <span class="glyphicon glyphicon-search"></span>
-                                <select type="text" name="query" id="query" {{--value="{{request()->input('query')}}"--}} class="search-box" placeholder="Salary">
-                                <option value="" style="color:darkgray;">Salary</option>
-                                @foreach ($candidates->unique('salary') as $candidate)
-                                    <option value="{{$candidate->salary}}">{{$candidate->salary}}</option>
+
+                                    <select type="text" name="query1" id="query1" {{--value="{{request()->input('query1')}}"--}} class="search-box" placeholder="From">
+                                            <option value="" style="color:darkgray;">From</option>
+                                            @foreach ($candidates->unique('salary') as $candidate)
+                                                <option value="{{$candidate->salary}}">{{$candidate->salary}}</option>
+                                                {{-- <option value="{{$candidate->salary}}">1 Lakhs - 3 Lakhs</option> --}}
+                                                {{-- <option value="{{$candidate->salary}}">3 Lakhs - 6 Lakhs</option>--}} 
+                                            @endforeach
+                                            </select>
+                                    <br>
+                                    <br>
+                                    <select type="text" name="query2" id="query2" {{--value="{{request()->input('query2')}}"--}} class="search-box" placeholder="To">
+                                {{-- <select type="text" name="query" id="query" {{--value="{{request()->input('query')}}" class="search-box" placeholder="Salary">--}}
+                                            <option value="" style="color:darkgray;">To</option>
+                                            @foreach ($candidates->unique('salary') as $candidate)
+                                                <option value="{{$candidate->salary}}">{{$candidate->salary}}</option>
                                     {{-- <option value="{{$candidate->salary}}">1 Lakhs - 3 Lakhs</option> --}}
-                                    {{-- <option value="{{$candidate->salary}}">3 Lakhs - 6 Lakhs</option> --}}
-                                @endforeach
-                                </select>
+                                    {{-- <option value="{{$candidate->salary}}">3 Lakhs - 6 Lakhs</option>--}} 
+                                            @endforeach
+                                    </select>
                                 <br>
                                 <br>
                                     <div class="form-group row mb-0">
@@ -386,14 +436,26 @@
                         <div class="col-md-10 offset-md-1">
                                 <form action="{{route('admin.search_experience')}}" method="GET">
                                         <span class="glyphicon glyphicon-search"></span>
-                                    <select type="text" name="query" id="query" {{--value="{{request()->input('query')}}"--}} class="search-box" placeholder="Salary">
-                                    <option value="" style="color:darkgray;">Experience</option>
-                                    @foreach ($candidates->unique('experience') as $candidate)
-                                        <option value="{{$candidate->experience}}">{{$candidate->experience}}</option>
+
+                                        <select type="text" name="query1" id="query1" {{--value="{{request()->input('query1')}}"--}} class="search-box" placeholder="From">
+                                                <option value="" style="color:darkgray;">From</option>
+                                                @foreach ($candidates->unique('experience') as $candidate)
+                                                    <option value="{{$candidate->experience}}">{{$candidate->experience}}</option>
+                                                    {{-- <option value="{{$candidate->salary}}">1 Lakhs - 3 Lakhs</option> --}}
+                                                    {{-- <option value="{{$candidate->salary}}">3 Lakhs - 6 Lakhs</option>--}} 
+                                                @endforeach
+                                                </select>
+                                        <br>
+                                        <br>
+                                        <select type="text" name="query2" id="query2" {{--value="{{request()->input('query2')}}"--}} class="search-box" placeholder="To">
+                                    {{-- <select type="text" name="query" id="query" {{--value="{{request()->input('query')}}" class="search-box" placeholder="Salary">--}}
+                                                <option value="" style="color:darkgray;">To</option>
+                                                @foreach ($candidates->unique('experience') as $candidate)
+                                                    <option value="{{$candidate->experience}}">{{$candidate->experience}}</option>
                                         {{-- <option value="{{$candidate->salary}}">1 Lakhs - 3 Lakhs</option> --}}
-                                        {{-- <option value="{{$candidate->salary}}">3 Lakhs - 6 Lakhs</option> --}}
-                                    @endforeach
-                                    </select>
+                                        {{-- <option value="{{$candidate->salary}}">3 Lakhs - 6 Lakhs</option>--}} 
+                                                @endforeach
+                                        </select> 
                                     <br>
                                     <br>
                                         <div class="form-group row mb-0">

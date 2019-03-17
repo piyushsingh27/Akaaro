@@ -140,12 +140,14 @@ class CandidatesController extends Controller
     public function search_marks12th(Request $request)
     {
         $request->validate([
-            'query' => [ 'min:1'],
+            'query1' => [ 'min:1'],
+            'query2' => [ 'min:1'],
         ]);
 
-        $query = $request->input('query');
+        $query1 = $request->input('query1');
+        $query2 = $request->input('query2');
         
-        $candidates = Candidate::where('marks_12th', 'like', "%$query%")->paginate(10);
+        $candidates = Candidate::where([['marks_12th', '>=', "$query1"],['marks_12th', '<=', "$query2"]])->paginate(10);
 
         return view('search-admin_index')->with('candidates', $candidates);
     }
@@ -153,12 +155,14 @@ class CandidatesController extends Controller
     public function search_aggregate_UG(Request $request)
     {
         $request->validate([
-            'query' => [ 'min:1'],
+            'query1' => [ 'min:1'],
+            'query2' => [ 'min:1'],
         ]);
 
-        $query = $request->input('query');
+        $query1 = $request->input('query1');
+        $query2 = $request->input('query2');
         
-        $candidates = Candidate::where('aggregate_UG', 'like', "%$query%")->paginate(10);
+        $candidates = Candidate::where([['aggregate_UG', '>=', "$query1"],['aggregate_UG', '<=', "$query2"]])->paginate(10);
 
         return view('search-admin_index')->with('candidates', $candidates);
     }
@@ -166,12 +170,15 @@ class CandidatesController extends Controller
     public function search_aggregate_PG(Request $request)
     {
         $request->validate([
-            'query' => [ 'min:1'],
+            'query1' => [ 'min:1'],
+            'query2' => [ 'min:1'],
         ]);
 
-        $query = $request->input('query');
+        $query1 = $request->input('query1');
+        $query2 = $request->input('query2');
         
-        $candidates = Candidate::where('aggregate_PG', 'like', "%$query%")->paginate(10);
+        $candidates = Candidate::where([['aggregate_PG', '>=', "$query1"],['aggregate_PG', '<=', "$query2"]])->paginate(10);
+
 
         return view('search-admin_index')->with('candidates', $candidates);
     }
@@ -179,12 +186,14 @@ class CandidatesController extends Controller
     public function search_salary(Request $request)
     {
         $request->validate([
-            'query' => [ 'min:1'],
+            'query1' => [ 'min:1'],
+            'query2' => [ 'min:1'],
         ]);
 
-        $query = $request->input('query');
+        $query1 = $request->input('query1');
+        $query2 = $request->input('query2');
         
-        $candidates = Candidate::where('salary', 'like', "%$query%")->paginate(10);
+        $candidates = Candidate::where([['salary', '>=', "$query1"],['salary', '<=', "$query2"]])->paginate(10);
 
         return view('search-admin_index')->with('candidates', $candidates);
     }
@@ -192,12 +201,14 @@ class CandidatesController extends Controller
     public function search_experience(Request $request)
     {
         $request->validate([
-            'query' => [ 'min:1'],
+            'query1' => [ 'min:1'],
+            'query2' => [ 'min:1'],
         ]);
 
-        $query = $request->input('query');
+        $query1 = $request->input('query1');
+        $query2 = $request->input('query2');
         
-        $candidates = Candidate::where('experience', 'like', "%$query%")->paginate(10);
+        $candidates = Candidate::where([['experience', '>=', "$query1"],['experience', '<=', "$query2"]])->paginate(10);
 
         return view('search-admin_index')->with('candidates', $candidates);
     }
@@ -507,17 +518,17 @@ class CandidatesController extends Controller
             'school_10th' => ['required', 'string', 'regex:/^[a-zA-Z]+$/u', 'max:255'],
             'marks_10th' => ['required', 'string'],
             'school_12th' => ['required', 'string', 'regex:/^[a-zA-Z]+$/u', 'max:255'],
-            'marks_12th' => ['required', 'string'],
+            'marks_12th' => ['required', 'numeric'],
             'university_UG' => ['required', 'string', 'max:255'],
             'college_UG' => ['required', 'string', 'max:255'],
-            'aggregate_UG' => ['required', 'string'],
+            'aggregate_UG' => ['required', 'numeric'],
             'university_PG' => ['nullable', 'string', 'max:255'],
             'college_PG' => ['nullable', 'string', 'max:255'],
-            'aggregate_PG' => ['nullable', 'string'],
+            'aggregate_PG' => ['nullable', 'numeric'],
             'skills' => ['string'],
             'other_skills' => ['string'],
-            'experience' => ['string'],
-            'salary' => ['string'],
+            'experience' => ['numeric'],
+            'salary' => ['numeric'],
             'cv_last_modified' => ['required', 'date'],
             'status' => ['string'],
             'interview_type' => ['string'],
@@ -611,17 +622,17 @@ class CandidatesController extends Controller
             'school_10th' => ['required', 'string', 'regex:/^[a-zA-Z]+$/u', 'max:255'],
             'marks_10th' => ['required', 'string'],
             'school_12th' => ['required', 'string', 'regex:/^[a-zA-Z]+$/u', 'max:255'],
-            'marks_12th' => ['required', 'string'],
+            'marks_12th' => ['required', 'numeric'],
             'university_UG' => ['required', 'string', 'max:255'],
             'college_UG' => ['required', 'string', 'max:255'],
-            'aggregate_UG' => ['required', 'string'],
+            'aggregate_UG' => ['required', 'numeric'],
             'university_PG' => ['nullable', 'string', 'max:255'],
             'college_PG' => ['nullable', 'string', 'max:255'],
-            'aggregate_PG' => ['nullable', 'string'],
+            'aggregate_PG' => ['nullable', 'numeric'],
             'skills' => ['string'],
             'other_skills' => ['string'],
-            'experience' => ['string'],
-            'salary' => ['string'],
+            'experience' => ['numeric'],
+            'salary' => ['numeric'],
             'cv_last_modified' => ['required', 'date'],
             'status' => ['string'],
             'interview_type' => ['string'],
