@@ -5,13 +5,15 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Jobs') }}</div>
+                <div class="card-header">{{ __('Emails sent') }}</div>
 
                 <div class="card-body">
                             {{-- <h1>Candidates</h1> --}}
-                            @if(count($jobs) > 0)
+                            @if(count($emails) > 0)
                             <!--<a class="btn btn-primary btn-lg" href="candidates" role="button">Go Back</a>-->
-                                @foreach($jobs as $job)
+                                @foreach($emails as $email)
+                                @if(!Auth::guest())
+                                @if(Auth::user()->id == $email->client_id)
                                     <div class = "well">
                                         <div class = "row">
                                             {{-- <div class = "col-md-4 col-sm-4">
@@ -21,16 +23,17 @@
                                                 <table class="table">
                                                     <tr>
                                                         <td>
-                                                            @if(!Auth::guest())
-                                                                @if(Auth::user()->id == $job->client_id)
+                                                            {{-- @if(!Auth::guest()) --}}
+                                                                {{-- @if(Auth::user()->id == $email->client_id) --}}
                                                                     {{-- <div class="col-md-6"> --}}
-                                                                    <h3><a class="dropdown-item" href="jobs/{{$job->id}}">{{$job->jobtitle}}</a></h3>
+                                                                    <h5> EmailTo: {{$email->email}}</h5>
+                                                                    <h5> Message: {!!$email->message!!}</h5>
                                                                     {{-- <a class="btn btn-primary pull-right" href="#">Link Client</a> --}}
                                                                     <div class="offset-md-1">
-                                                                    <small>{{$job->created_at}} by {{$job->client->name}}</small>
+                                                                    <small>{{$email->created_at}} by {{$email->client->name}}</small>
                                                                     </div>
-                                                                @endif
-                                                            @endif
+                                                                {{-- @endif --}}
+                                                            {{-- @endif --}}
                                                                     {{-- </div> --}}
                                                         </td>
                                                         {{-- <hr> --}}
@@ -48,13 +51,17 @@
                                             {{-- </div> --}}
                                         </div>
                                     </div>
-                                    {{$jobs->links()}} 
+                                    {{-- {{$emails->links()}}  --}}
+                                    @endif
+                                    @endif
                                 @endforeach
-                                {{-- {{$candidates->links()}} --}}
+                                {{$emails->links()}}
 
                             @else
-                                <p>No candidates found</p>
+                                <p>No emails found</p>
                             @endif 
+
+                            
                 </div>
             </div>
         </div>

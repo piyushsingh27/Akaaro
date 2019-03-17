@@ -60,6 +60,7 @@ Route::get('/searchres', 'CandidatesController@search_res')->name('search_res');
 Route::get('/searchresume&', 'CandidatesController@search_resume_and')->name('search_resume&');
 Route::get('/searchinterview-type', 'CandidatesController@search_interviewtype')->name('search_interviewtype');
 Route::get('/searchsubmission-type', 'CandidatesController@search_submissiontype')->name('search_submissiontype');
+Route::get('/sentmails', 'CandidatesController@sentmails')->name('sent_mails');
 
 
 Route::resource('/remarks', 'RemarksController');
@@ -105,6 +106,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             Route::get('/searchresumecl', 'CandidatesController@search_resume')->name('client.search_resume');
             Route::get('/searchrescl', 'CandidatesController@search_res')->name('client.search_res');
             Route::get('/searchresumecl&', 'CandidatesController@search_resume_and')->name('client.search_resume&');
+            Route::get('/sentmailscl', 'CandidatesController@sentmails')->name('client.sent_mails');
         });
     });
 });
@@ -156,6 +158,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             Route::get('/searchresumead', 'CandidatesController@search_resume')->name('admin.search_resume');
             Route::get('/searchresad', 'CandidatesController@search_res')->name('admin.search_res');
             Route::get('/searchresumead&', 'CandidatesController@search_resume_and')->name('admin.search_resume&');
+            Route::get('/sentmailsad', 'CandidatesController@sentmails')->name('admin.sent_mails');
         });
     });
 });

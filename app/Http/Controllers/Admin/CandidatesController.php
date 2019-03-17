@@ -469,6 +469,13 @@ class CandidatesController extends Controller
         return view('search_admin')->with('candidates', $candidates);;
     }
 
+    public function sentmails()
+    {
+        $emails = Email::orderBy('created_at','desc')->paginate(10);
+    
+        return view('sentmails-admin')->with('emails',$emails);
+    }
+
 
     /**
      * Show the form for creating a new resource.

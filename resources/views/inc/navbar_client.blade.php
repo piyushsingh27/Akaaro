@@ -105,6 +105,8 @@
                             <a class="dropdown-item" href="{{action('Client\CandidatesController@index')}}">List of candidates</a>
 
                             <a class="dropdown-item" href="{{action('JobDescriptionController@index')}}">Posted Jobs</a>
+
+                            <a class="dropdown-item" href="{{action('Client\CandidatesController@sentmails')}}">Sent Emails</a>
                         
                             {{-- <a class="dropdown-item" href="{{action('RemarksController@index')}}">Remarks</a>  --}}
                             

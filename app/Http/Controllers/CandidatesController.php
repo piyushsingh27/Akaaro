@@ -538,6 +538,13 @@ class CandidatesController extends Controller
         return view('search')->with('candidates', $candidates);
     }
 
+    public function sentmails()
+    {
+        $emails = Email::orderBy('created_at','desc')->paginate(10);
+    
+        return view('sentmails')->with('emails',$emails);
+    }
+
 
 
     /**
