@@ -75,7 +75,6 @@ class JobDescriptionController extends Controller
         $this->validate($request, [
             'CompanyName' => ['required', 'string'],
             'jobtitle' => ['required', 'string'],
-            'designation' => ['required', 'string'],
             'skills_required' => ['required', 'string'],
             'candidate_count' => ['required', 'numeric'],
             'salary' => ['string'],
@@ -86,7 +85,6 @@ class JobDescriptionController extends Controller
         $job = new JobDescription;
         $job->CompanyName = $request->input('CompanyName');
         $job->jobtitle = $request->input('jobtitle');
-        $job->designation = $request->input('designation');
         $job->skills_required = $request->input('skills_required');
         $job->candidate_count = $request->input('candidate_count');
         $job->salary = $request->input('salary');
@@ -136,7 +134,6 @@ class JobDescriptionController extends Controller
         $this->validate($request, [
             'CompanyName' => ['required', 'string'],
             'jobtitle' => ['required', 'string'],
-            'designation' => ['required', 'string'],
             'skills_required' => ['required', 'string'],
             'candidate_count' => ['required', 'numeric'],
             'salary' => ['string'],
@@ -147,7 +144,6 @@ class JobDescriptionController extends Controller
         $job = JobDescription::find($id);
         $job->CompanyName = $request->input('CompanyName');
         $job->jobtitle = $request->input('jobtitle');
-        $job->designation = $request->input('designation');
         $job->skills_required = $request->input('skills_required');
         $job->candidate_count = $request->input('candidate_count');
         $job->salary = $request->input('salary');
