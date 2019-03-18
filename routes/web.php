@@ -143,6 +143,14 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             Route::get('jobsadactivate/{id}', 'JobDescriptionController@flagactive');
             Route::get('jobsaddeactivate/{id}', 'JobDescriptionController@flaginactive');
             Route::get('jobsadhold/{id}', 'JobDescriptionController@flaghold');
+            Route::get('jobsadactive', 'JobDescriptionController@index_active');
+            Route::get('jobsadinactive', 'JobDescriptionController@index_inactive');
+            Route::get('jobsadhold', 'JobDescriptionController@index_hold');
+            Route::get('jobsadsearch', 'JobDescriptionController@searchpage');
+            Route::get('searchjobsadstatus', 'JobDescriptionController@search_status')->name('admin.search_status');
+            Route::get('searchjobsadjobtitle', 'JobDescriptionController@search_jobtitle')->name('admin.search_jobtitle');
+            Route::get('searchjobsadjobdescription', 'JobDescriptionController@search_jobdescription')->name('admin.search_jobdescription');
+            Route::get('searchjobsadjobdescription&', 'JobDescriptionController@search_jobdescription_and')->name('admin.search_jobdescription&');
 
             Route::get('/searchpagead', 'CandidatesController@searchpage')->name('admin.searchpage');
 

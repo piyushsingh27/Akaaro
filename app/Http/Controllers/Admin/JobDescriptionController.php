@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\JobDescription;
+use DB;
+use Illuminate\Support\Facades\Input;
 
 class JobDescriptionController extends Controller
 {
@@ -29,6 +31,27 @@ class JobDescriptionController extends Controller
         $jobs = JobDescription::orderBy('created_at', 'desc')->paginate(10);
 
         return view('JD.admin_index')->with('jobs', $jobs);
+    }
+
+    public function index_active()
+    {
+        $jobs = JobDescription::orderBy('created_at', 'desc')->paginate(10);
+
+        return view('JD.admin_index-active')->with('jobs', $jobs);
+    }
+
+    public function index_inactive()
+    {
+        $jobs = JobDescription::orderBy('created_at', 'desc')->paginate(10);
+
+        return view('JD.admin_index-inactive')->with('jobs', $jobs);
+    }
+
+    public function index_hold()
+    {
+        $jobs = JobDescription::orderBy('created_at', 'desc')->paginate(10);
+
+        return view('JD.admin_index-hold')->with('jobs', $jobs);
     }
 
     /**
@@ -173,5 +196,126 @@ class JobDescriptionController extends Controller
         $job->save();
 
         return redirect()->to('/admin/jobsad')->with('Success', "Job Activated");
+    }
+
+    public function searchpage()
+    {
+        $jobs = JobDescription::all();
+
+        return view('search-admin_job')->with('jobs', $jobs);
+    }
+
+    public function search_jobtitle(Request $request)
+    {
+        $request->validate([
+            'query' => [ 'min:1'],
+        ]);
+
+        $query = $request->input('query');
+        
+        $jobs = JobDescription::where('jobtitle', 'like', "%$query%")->paginate(10);
+
+        return view('JD.admin_index')->with('jobs', $jobs);
+    }
+
+    public function search_jobdescription(Request $request)
+    {
+        $excluding = Input::has('excluding') ? true : false;
+
+        $update_excluding = DB::table('job_descriptions')->update(array('excluding' => $excluding));
+        // $candidate->save();
+
+        $jobs = JobDescription::all();
+        foreach ($jobs as $job)
+        {
+            if ($job->excluding == 0)
+            {
+                $request->validate([
+                    'query' => [ 'min:1'],
+                    'query1' => ['min:1'],
+                    'query2' => ['min:1'],
+                ]); 
+
+                $query = $request->input('query');
+                $query1 = $request->input('query1');
+                $query2 = $request->input('query2');
+                
+                $jobs = JobDescription::where('skills_required', 'like', "%$query%")
+                                            ->orWhere('skills_required', 'like', "%$query1%")
+                                            ->orWhere('skills_required', 'like', "%$query2%")
+                                            ->paginate(10);
+
+                return view('JD.admin_index')->with('jobs', $jobs);
+            }
+
+            else if($job->excluding == 1)
+            {
+                $request->validate([
+                    'query' => [ 'min:1'],
+                    'query1' => ['min:1'],
+                    'query2' => ['min:1'],
+                ]);
+        
+                $query = $request->input('query');
+                $query1 = $request->input('query1');
+                $query2 = $request->input('query2');
+                
+                $jobs = JobDescription::where('skills_required', 'like', "$query")
+                                            ->orWhere('skills_required', 'like', "$query1")
+                                            ->orWhere('skills_required', 'like', "$query2")
+                                            ->paginate(10);
+        
+                return view('JD.admin_index')->with('jobs', $jobs);
+            }
+
+        }
+
+    }
+
+    public function search_jobdescription_and(Request $request)
+    {
+        $excluding = Input::has('excluding') ? true : false;
+
+        $update_excluding = DB::table('job_descriptions')->update(array('excluding' => $excluding));
+
+        $jobs = JobDescription::all();
+        foreach ($jobs as $job)
+        {
+            if ($job->excluding == 0)
+            {
+                $request->validate([
+                    'query' => [ 'min:1'],
+                    'query1' => ['min:1'],
+                    'query2' => ['min:1'],
+                ]);
+        
+                $query = $request->input('query');
+                $query1 = $request->input('query1');
+                $query2 = $request->input('query2');
+                
+                $jobs = JobDescription::where([['skills_required', 'like', "%$query%"],['skills_required', 'like', "%$query1%"],['skills_required', 'like', "%$query2%"]])
+                                            ->paginate(10);
+        
+                return view('JD.admin_index')->with('jobs', $jobs);
+            }
+
+            else if ($job->excluding == 1)
+            {
+                $request->validate([
+                    'query' => [ 'min:1'],
+                    'query1' => ['min:1'],
+                    'query2' => ['min:1'],
+                ]);
+        
+                $query = $request->input('query');
+                $query1 = $request->input('query1');
+                $query2 = $request->input('query2');
+                
+                $jobs = JobDescription::where([['skills_required', 'like', "$query"],['skills_required', 'like', "$query1"],['skills_required', 'like', "$query2"]])
+                                            ->paginate(10);
+        
+                return view('JD.admin_index')->with('jobs', $jobs);
+            }
+        }
     }
 }

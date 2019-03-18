@@ -31,6 +31,7 @@
                     <hr>
 
                     <a href = "{{action('Admin\JobDescriptionController@create')}}" class = "btn btn-primary">New Job</a>
+                    <a href = "{{action('Admin\JobDescriptionController@searchpage')}}" class = "btn btn-primary">Search Job</a>
 
                     {{-- <a href = "{{route('client.searchpage')}}" class = "btn btn-primary">Search</a> --}}
 
