@@ -28,6 +28,28 @@
                                                                     {{-- <a class="btn btn-primary pull-right" href="#">Link Client</a> --}}
                                                                     <div class="offset-md-1">
                                                                     <small>{{$job->created_at}} {{--by {{$job->admin->name}}--}}</small>
+                                                                    <br>
+
+                                                                    <?php $activated_flag = $job->flag ?>
+                                                                        @if ($activated_flag == 0 || $activated_flag == -1)
+                                                                            <a href= "{{action('Admin\JobDescriptionController@flagactive', ['id' => $job->id])}}" class="btn btn-default pull-right">Activate</a>
+                                                                        @elseif ($activated_flag == 1) 
+                                                                            <a href="#" class="btn btn-default pull-right">Activated</a>
+                                                                        @endif
+
+                                                                    <?php $inactivated_flag = $job->flag ?>
+                                                                        @if ($inactivated_flag == 0 || $inactivated_flag == 1)
+                                                                            <a href= "{{action('Admin\JobDescriptionController@flaginactive', ['id' => $job->id])}}" class="btn btn-default pull-right">Deactivate</a>
+                                                                        @elseif ($inactivated_flag == -1)
+                                                                            <a href="#" class="btn btn-default pull-right">Deactivated</a>
+                                                                        @endif
+
+                                                                    <?php $hold_flag = $job->flag ?>
+                                                                        @if ($hold_flag == -1 || $hold_flag == 1)
+                                                                            <a href= "{{action('Admin\JobDescriptionController@flaghold', ['id' => $job->id])}}" class="btn btn-default pull-right">Put on Hold</a>
+                                                                        @elseif ($hold_flag == 0)
+                                                                            <a href="#" class="btn btn-default pull-right">On Hold</a>
+                                                                        @endif
                                                                     </div>
                                                                 @endif
                                                             @endif

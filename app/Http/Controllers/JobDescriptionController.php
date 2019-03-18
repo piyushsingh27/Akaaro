@@ -89,6 +89,7 @@ class JobDescriptionController extends Controller
         $job->experience = $request->input('experience');
         $job->location = $request->input('location');
         $job->client_id = auth()->user()->id;
+        $job->flag = 1;
         $job->save();
 
         return redirect('/jobs')->with('Success', "Job Created");
@@ -149,6 +150,7 @@ class JobDescriptionController extends Controller
         $job->experience = $request->input('experience');
         $job->location = $request->input('location');
         $job->client_id = auth()->user()->id;
+        $job->flag = 1;
         $job->save();
 
         return redirect('/jobs')->with('Success', "Job Updated");

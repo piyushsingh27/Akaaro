@@ -140,6 +140,9 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             Route::post('logout', 'Auth\LoginController@logout')->name('admin.logout');
 
             Route::resource('jobsad', 'JobDescriptionController');
+            Route::get('jobsadactivate/{id}', 'JobDescriptionController@flagactive');
+            Route::get('jobsaddeactivate/{id}', 'JobDescriptionController@flaginactive');
+            Route::get('jobsadhold/{id}', 'JobDescriptionController@flaghold');
 
             Route::get('/searchpagead', 'CandidatesController@searchpage')->name('admin.searchpage');
 

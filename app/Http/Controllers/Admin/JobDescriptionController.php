@@ -70,6 +70,7 @@ class JobDescriptionController extends Controller
         $job->experience = $request->input('experience');
         $job->location = $request->input('location');
         // $job->client_id = auth()->user()->id;
+        $job->flag = 1;
         $job->save();
 
         return redirect('/admin/jobsad')->with('Success', "Job Created");
@@ -129,6 +130,7 @@ class JobDescriptionController extends Controller
         $job->salary = $request->input('salary');
         $job->experience = $request->input('experience');
         $job->location = $request->input('location');
+        $job->flag = 1;
         // $job->client_id = auth()->user()->id;
         $job->save();
 
@@ -144,5 +146,32 @@ class JobDescriptionController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function flagactive($id)
+    {   
+        $job = JobDescription::find($id);
+        $job->flag = 1;
+        $job->save();
+
+        return redirect()->to('/admin/jobsad')->with('Success', "Job Activated");
+    }
+
+    public function flaginactive($id)
+    {
+        $job = JobDescription::find($id);
+        $job->flag = -1;
+        $job->save();
+
+        return redirect()->to('/admin/jobsad')->with('Success', "Job Activated");
+    }
+
+    public function flaghold($id)
+    {
+        $job = JobDescription::find($id);
+        $job->flag = 0;
+        $job->save();
+
+        return redirect()->to('/admin/jobsad')->with('Success', "Job Activated");
     }
 }
