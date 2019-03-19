@@ -77,8 +77,8 @@ class JobDescriptionController extends Controller
             'jobtitle' => ['required', 'string'],
             'skills_required' => ['required', 'string'],
             'candidate_count' => ['required', 'numeric'],
-            'salary' => ['string'],
-            'experience' => ['string'],
+            'salary' => ['numeric'],
+            'experience' => ['numeric'],
             'location' => ['required', 'string'],
         ]);
 
@@ -136,8 +136,8 @@ class JobDescriptionController extends Controller
             'jobtitle' => ['required', 'string'],
             'skills_required' => ['required', 'string'],
             'candidate_count' => ['required', 'numeric'],
-            'salary' => ['string'],
-            'experience' => ['string'],
+            'salary' => ['numeric'],
+            'experience' => ['numeric'],
             'location' => ['required', 'string'],
         ]);
 
@@ -313,5 +313,35 @@ class JobDescriptionController extends Controller
                 return view('JD.admin_index')->with('jobs', $jobs);
             }
         }
+    }
+
+    public function search_jobsalary(Request $request)
+    {
+        $request->validate([
+            'query1' => [ 'min:1'],
+            'query2' => [ 'min:1'],
+        ]);
+
+        $query1 = $request->input('query1');
+        $query2 = $request->input('query2');
+        
+        $jobs = JobDescription::where([['salary', '>=', "$query1"],['salary', '<=', "$query2"]])->paginate(10);
+
+        return view('JD.admin_index')->with('jobs', $jobs);
+    }
+
+    public function search_jobexperience(Request $request)
+    {
+        $request->validate([
+            'query1' => [ 'min:1'],
+            'query2' => [ 'min:1'],
+        ]);
+
+        $query1 = $request->input('query1');
+        $query2 = $request->input('query2');
+        
+        $jobs = JobDescription::where([['experience', '>=', "$query1"],['experience', '<=', "$query2"]])->paginate(10);
+
+        return view('JD.admin_index')->with('jobs', $jobs);
     }
 }

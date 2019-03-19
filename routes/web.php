@@ -1,5 +1,7 @@
 <?php
 
+use Symfony\Component\HttpKernel\Fragment\RoutableFragmentRenderer;
+
 // use Symfony\Component\Routing\Annotation\Route;
 
 
@@ -151,6 +153,8 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             Route::get('searchjobsadjobtitle', 'JobDescriptionController@search_jobtitle')->name('admin.search_jobtitle');
             Route::get('searchjobsadjobdescription', 'JobDescriptionController@search_jobdescription')->name('admin.search_jobdescription');
             Route::get('searchjobsadjobdescription&', 'JobDescriptionController@search_jobdescription_and')->name('admin.search_jobdescription&');
+            Route::get('searchjobsadjob_salary', 'JobDescriptionController@search_jobsalary')->name('admin.search_jobsalary');
+            Route::get('searchjobsadjob_experience', 'JobDescriptionController@search_jobexperience')->name('admin.search_jobexperience');
 
             Route::get('/searchpagead', 'CandidatesController@searchpage')->name('admin.searchpage');
 

@@ -166,6 +166,81 @@
                         </div>
                         </div>
 
+                        <hr>
+
+                        <div class="col-md-10 offset-md-1">
+                            <form action="{{route('admin.search_jobsalary')}}" method="GET">
+                                    <span class="glyphicon glyphicon-search"></span>
+
+                                    <select type="text" name="query1" id="query1" {{--value="{{request()->input('query1')}}"--}} class="search-box" placeholder="From">
+                                            <option value="" style="color:darkgray;">From</option>
+                                            @foreach ($jobs->unique('salary') as $job)
+                                                <option value="{{$job->salary}}">{{$job->salary}}</option>
+                                                {{-- <option value="{{$candidate->salary}}">1 Lakhs - 3 Lakhs</option> --}}
+                                                {{-- <option value="{{$candidate->salary}}">3 Lakhs - 6 Lakhs</option>--}} 
+                                            @endforeach
+                                            </select>
+                                    <br>
+                                    <br>
+                                    <select type="text" name="query2" id="query2" {{--value="{{request()->input('query2')}}"--}} class="search-box" placeholder="To">
+                                {{-- <select type="text" name="query" id="query" {{--value="{{request()->input('query')}}" class="search-box" placeholder="Salary">--}}
+                                            <option value="" style="color:darkgray;">To</option>
+                                            @foreach ($jobs->unique('salary') as $job)
+                                                <option value="{{$job->salary}}">{{$job->salary}}</option>
+                                    {{-- <option value="{{$candidate->salary}}">1 Lakhs - 3 Lakhs</option> --}}
+                                    {{-- <option value="{{$candidate->salary}}">3 Lakhs - 6 Lakhs</option>--}} 
+                                            @endforeach
+                                    </select>
+                                <br>
+                                <br>
+                                    <div class="form-group row mb-0">
+                                        <div class="col-md-6 ">
+                                            <button type="submit" class="btn btn-primary">
+                                                {{ __('Search') }}
+                                            </button>
+                                        </div>
+                                    </div>
+                            </form>
+                        </div>
+
+                        <hr>
+
+                        <div class="col-md-10 offset-md-1">
+                                <form action="{{route('admin.search_jobexperience')}}" method="GET">
+                                        <span class="glyphicon glyphicon-search"></span>
+
+                                        <select type="text" name="query1" id="query1" {{--value="{{request()->input('query1')}}"--}} class="search-box" placeholder="From">
+                                                <option value="" style="color:darkgray;">From</option>
+                                                @foreach ($jobs->unique('experience') as $job)
+                                                    <option value="{{$job->experience}}">{{$job->experience}}</option>
+                                                    {{-- <option value="{{$candidate->salary}}">1 Lakhs - 3 Lakhs</option> --}}
+                                                    {{-- <option value="{{$candidate->salary}}">3 Lakhs - 6 Lakhs</option>--}} 
+                                                @endforeach
+                                                </select>
+                                        <br>
+                                        <br>
+                                        <select type="text" name="query2" id="query2" {{--value="{{request()->input('query2')}}"--}} class="search-box" placeholder="To">
+                                    {{-- <select type="text" name="query" id="query" {{--value="{{request()->input('query')}}" class="search-box" placeholder="Salary">--}}
+                                                <option value="" style="color:darkgray;">To</option>
+                                                @foreach ($jobs->unique('experience') as $job)
+                                                    <option value="{{$job->experience}}">{{$job->experience}}</option>
+                                        {{-- <option value="{{$candidate->salary}}">1 Lakhs - 3 Lakhs</option> --}}
+                                        {{-- <option value="{{$candidate->salary}}">3 Lakhs - 6 Lakhs</option>--}} 
+                                                @endforeach
+                                        </select> 
+                                    <br>
+                                    <br>
+                                        <div class="form-group row mb-0">
+                                            <div class="col-md-6 ">
+                                                <button type="submit" class="btn btn-primary">
+                                                    {{ __('Search') }}
+                                                </button>
+                                            </div>
+                                        </div>
+                                </form>
+                            </div>
+
+
                         {{-- <form action="{{route('admin.search_res')}}" method="GET" class="search-form">
                             <span class="glyphicon glyphicon-search"></span>
                             <input type="text" name="query" id="query" value="{{request()->input('query')}}" class="search-box" placeholder="Resume Search">
@@ -173,83 +248,7 @@
 
                         <hr> --}}
 
-                        {{-- <div class="col-md-10 offset-md-1">
-                            <h4> Any of the skills required</h4>
-                            <form action="{{route('admin.search_resume')}}" method="GET">
-                                @csrf
-                                    <span class="glyphicon glyphicon-search"></span>
-                                <input type="text" name="query" id="query" value="{{request()->input('query')}}" class="search-box" placeholder="Skill 1">
-                                <br>
-                                <br>
-                                <input type="text" name="query1" id="query1" value="{{request()->input('query1')}}" class="search-box" placeholder="Skill 2">
-                                <br>
-                                <br>
-                                <input type="text" name="query2" id="query2" value="{{request()->input('query2')}}" class="search-box" placeholder="Skill 3">
-                                <br>
-                                <br>
-
-                                <div class="form-group row">
-                                        <div class="col-md-5">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="excluding" value="0">
-            
-                                                <label class="form-check-label" for="">
-                                                    {{ __('Excluding') }}
-                                                </label>
-                                            </div>
-                                        </div>
-                                </div>
-
-                                <div class="form-group row mb-0">
-                                    <div class="col-md-6">
-                                        <button type="submit" class="btn btn-primary">
-                                            {{ __('Search') }}
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <hr>
-
-                        <div class="col-md-10 offset-md-1">
-                            <h4> All of the skills required</h4>
-                            <form action="{{route('admin.search_resume&')}}" method="GET">
-                                @csrf
-                                    <span class="glyphicon glyphicon-search"></span>
-                                <input type="text" name="query" id="query" value="{{request()->input('query')}}" class="search-box" placeholder="Skill 1">
-                                <br>
-                                <br>
-                                <input type="text" name="query1" id="query1" value="{{request()->input('query1')}}" class="search-box" placeholder="Skill 2">
-                                <br>
-                                <br>
-                                <input type="text" name="query2" id="query2" value="{{request()->input('query2')}}" class="search-box" placeholder="Skill 3">
-                                <br>
-                                <br>
-
-                                <div class="form-group row">
-                                        <div class="col-md-5">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="excluding" value="0">
-            
-                                                <label class="form-check-label" for="">
-                                                    {{ __('Excluding') }}
-                                                </label>
-                                            </div>
-                                        </div>
-                                </div>
-
-                                <div class="form-group row mb-0">
-                                    <div class="col-md-6">
-                                        <button type="submit" class="btn btn-primary">
-                                            {{ __('Search') }}
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div> --}}
-
-                        {{-- <hr> --}}
-
+                        
                 </div>
             </div>
         </div>

@@ -73,8 +73,8 @@ class JobDescriptionController extends Controller
             'jobtitle' => ['required', 'string'],
             'skills_required' => ['required', 'string'],
             'candidate_count' => ['required', 'numeric'],
-            'salary' => ['string'],
-            'experience' => ['string'],
+            'salary' => ['numeric'],
+            'experience' => ['numeric'],
             'location' => ['required', 'string'],
         ]);
 
@@ -132,8 +132,8 @@ class JobDescriptionController extends Controller
             'jobtitle' => ['required', 'string'],
             'skills_required' => ['required', 'string'],
             'candidate_count' => ['required', 'numeric'],
-            'salary' => ['string'],
-            'experience' => ['string'],
+            'salary' => ['numeric'],
+            'experience' => ['numeric'],
             'location' => ['required', 'string'],
         ]);
 
